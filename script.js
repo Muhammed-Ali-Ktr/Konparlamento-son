@@ -369,3 +369,8 @@ function toggleImages(container) {
   const images = container.querySelectorAll('.toggle-image');
   images.forEach(img => img.classList.toggle('active'));
 }
+
+// Mobil menü aç/kapa
+document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('active');
+});
