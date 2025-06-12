@@ -182,6 +182,20 @@ header {
   margin-top: 8px;
 }
 
+/* Mobilde geri sayımı dikey hizala */
+@media (max-width: 768px) {
+  #countdown {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  #countdown span {
+    font-size: 4.5rem;
+    min-width: 70px;
+  }
+}
+
 /* Vakıf Hakkında Bilgi */
 .hero-content p {
   margin: 50px 0 40px;
