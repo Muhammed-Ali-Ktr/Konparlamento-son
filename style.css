@@ -93,7 +93,7 @@ header {
 
 /* Hero Bölümü */
 .hero {
-  background-image: url('image/meclis-background.jpg'); /* Arka plan görselinin yolu */
+  background-image: url('image/meclis-background.png'); /* Arka plan görselinin yolu */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
