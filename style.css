@@ -93,6 +93,25 @@ header {
 
 /* Hero Bölümü */
 .hero {
+  background-image: url('image/meclis-background.jpg'); /* Arka plan görselinin yolu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white; /* Arka plan koyuysa yazının görünmesi için */
+  padding: 80px 0; /* Genişlik ve yükseklik ayarlaması */
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Saydam karartma efekti */
+  z-index: -1;
+}
+.hero {
   background-color: #fff;
   padding: 80px 20px 100px;
   text-align: center;
