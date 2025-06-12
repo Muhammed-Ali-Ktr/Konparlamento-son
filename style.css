@@ -643,5 +643,40 @@ footer {
   }
 }
 
+/* Mobil görünümde nav-links gizli olsun */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #000;
+  }
+
+  .main-nav .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+/* Masaüstü için mobil menü gizli */
+.mobile-menu-btn {
+  display: none;
+}
 
 
