@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="image/konparlamento-logo.png" type="image/PNG">
+    <style>
+        .btn-link {
+  text-decoration: none; /* Link alt çizgisini kaldırır */
+}
+
+.btn-form {
+  background-color: #a70000; /* Yeşil arka plan */
+  color: rgb(255, 255, 255); /* Beyaz metin */
+  padding: 12px 24px; /* İç boşluk */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px; /* Yuvarlatılmış köşeler */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-form:hover {
+  background-color: #ff0000; /* Hoverda koyu yeşil */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.btn-form:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.6);
+}
+
+    </style>
 </head>
+
+
+
 <body>
     <!-- Ana Navigasyon -->
     <header>
@@ -39,12 +72,19 @@
             <div class="hero-content">
                 <h1>Konparlamento Başvuru Formu</h1>
                 <p>Organizasyonumuza katılmak için aşağıdaki formu eksiksiz doldurunuz.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeng3UTCFhL0TL3-6PHT4zAPb7hn6bL9b6JFZI50RYREpQEBw/viewform">
+                 <button class="btn-form">Form'a Git</button>
+                </a>
             </div>
         </div>
     </section>
 
-    
-
+    <!-- Form -->
+<center>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeng3UTCFhL0TL3-6PHT4zAPb7hn6bL9b6JFZI50RYREpQEBw/viewform">
+        <button class="btn-form">Form'a Git</button>
+    </a>
+</center>
     <!-- Footer -->
     <footer>
         <div class="container">
