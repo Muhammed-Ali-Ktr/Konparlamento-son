@@ -7,6 +7,81 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+/* Ana Navigasyon */
+header {
+  background-color: #000;
+  border-bottom: 1px solid #222;
+}
+
+.main-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #ccc;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  background-color: #222;
+  color: #fff;
+  outline: none;
+}
+
+.nav-links li a.active {
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2px solid #f0a500;
+}
+
+.btn {
+  background-color: #f0a500;
+  color: #000;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #d18e00;
+  outline: none;
+}
+
     /* Genel Sıfırlama */
     * {
       margin: 0;
