@@ -533,7 +533,7 @@ footer {
     z-index: 999;
   }
 
-  .nav-links.show {
+  .nav-links.active {
     display: flex;
   }
 
@@ -547,7 +547,7 @@ footer {
   }
 
   /* Butonlar tam genişlik */
-  .btn {
+  .btn, .btn-outline {
     display: block;
     width: 90%;
     margin: 10px auto 0;
@@ -563,9 +563,16 @@ footer {
     font-size: 1rem;
   }
 
-  /* Galeri grid 1 sütun */
-  .gallery-grid {
+  /* Etkinlik grid 1 sütun */
+  .events-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Zaman çizelgesi soldaki tarih küçülür ve daha yakın */
+  .timeline-date {
+    left: -60px;
+    width: 50px;
+    font-size: 0.9rem;
   }
 }
 </style>
