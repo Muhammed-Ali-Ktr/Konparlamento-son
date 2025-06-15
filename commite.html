@@ -7,6 +7,49 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+/* Üst Navigasyon */
+.top-nav {
+  background-color: #111;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #222;
+}
+
+.top-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.social-links a {
+  color: #ccc;
+  margin-right: 12px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:last-child {
+  margin-right: 0;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  color: #f0a500;
+  outline: none;
+}
+
+.contact-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ccc;
+  margin-left: 15px;
+}
+
+.contact-info i {
+  color: #888;
+}
 /* Ana Navigasyon */
 header {
   background-color: #000;
