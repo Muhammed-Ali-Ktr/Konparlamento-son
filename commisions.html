@@ -172,6 +172,69 @@ section h2 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobil */
+@media (max-width: 600px) {
+  /* Üst navigasyon alt alta */
+  .top-nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contact-info span {
+    margin-left: 0;
+  }
+
+  /* Ana navigasyon mobil menü */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    padding: 15px 0;
+    border-top: 1px solid #222;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Butonlar tam genişlik */
+  .btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+  /* Sayfa başlığı yazıları küçülür */
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  /* Galeri grid 1 sütun */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
     </style>
 </head>
 <body>
