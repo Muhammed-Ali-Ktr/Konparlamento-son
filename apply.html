@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konparlamento | Başvuru Yap</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="image/konparlamento-logo.png" type="image/png">
+    <style>
+
+      
+        .btn-link {
+  text-decoration: none; /* Link alt çizgisini kaldırır */
+}
+
+.btn-form {
+  background-color: #a70000; /* Yeşil arka plan */
+  color: rgb(255, 255, 255); /* Beyaz metin */
+  padding: 12px 24px; /* İç boşluk */
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px; /* Yuvarlatılmış köşeler */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn-form:hover {
+  background-color: #ff0000; /* Hoverda koyu yeşil */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.btn-form:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.6);
+}
+
+/* Responsive */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+
+  /* Üst navigasyon alt alta */
+  .top-nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contact-info span {
+    margin-left: 0;
+  }
+
+  /* Ana navigasyon mobil menü */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    padding: 15px 0;
+    border-top: 1px solid #222;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Butonlar tam genişlik */
+  .btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+    </style>
+</head>
+
+<body>
+    <!-- Ana Navigasyon -->
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" style="background: none;">
+                    <span>Konparlamento</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="commisions.html">Komisyonlar</a></li>
+                    <li><a href="team.html">Ekip</a></li>
+                    <li><a href="events.html">Organizasyonlar</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="apply.html" class="btn active">Başvuru Yap</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Başvuru Hero Bölümü -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Konparlamento Başvuru Formu</h1>
+                <p>Organizasyonumuza katılmak için aşağıdaki formu eksiksiz doldurunuz.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeng3UTCFhL0TL3-6PHT4zAPb7hn6bL9b6JFZI50RYREpQEBw/viewform" 
+                class="btn-form">Form'a Git</a>
+
+
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
+                    <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
+                    <p> Her Dem Yeniden </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="commisions.html">Komisyonlar</a></li>
+                        <li><a href="team.html">Ekip</a></li>
+                        <li><a href="events.html">Organizasyonlar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="apply.html" class="active">Başvuru Yap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 000 xxx Caddesi, Konya</p>
+                    <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Konparlamento. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('show');
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

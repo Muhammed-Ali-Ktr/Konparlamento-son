@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konparlamento | Ana Sayfa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="image/konparlamento-logo.png" type="image/png">
+    <style>
+        /* S.S.S. Bölümü açılır kapanır cevap */ 
+  .faq-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+  }
+
+  .faq-question {
+    background: none;
+    border: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover,
+  .faq-question:focus {
+    background-color: #e0e0e0;
+    outline: none;
+  }
+
+  .faq-icon {
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  .faq-answer {
+    padding: 10px 15px 10px 39px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+  }
+
+/* Mobil */
+@media (max-width: 600px) {
+  /* Üst navigasyon alt alta */
+  .top-nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contact-info span {
+    margin-left: 0;
+  }
+
+  /* Ana navigasyon mobil menü */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #000;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    padding: 15px 0;
+    border-top: 1px solid #222;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Butonlar tam genişlik */
+  .btn {
+    display: block;
+    width: 90%;
+    margin: 10px auto 0;
+    text-align: center;
+  }
+
+  /* Sayfa başlığı yazıları küçülür */
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  /* Galeri grid 1 sütun */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+</head>
+<body>
+    
+
+    <!-- Ana Navigasyon -->
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" style="background: none;">
+                    
+                    <span>Konparlamento</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="commisions.html">Komisyonlar</a></li>
+                    <li><a href="team.html">Ekip</a></li>
+                    <li><a href="events.html">Organizasyonlar</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Bölümü -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Konparlamento</h1>
+            <div id="sayac" class="sayac">
+                <h2>Organizasyona Kalan Süre</h2>
+                <div id="countdown">
+                    <span id="hero-days">00</span>
+                    <span id="hero-hours">00</span>
+                    <span id="hero-minutes">00</span>
+                    <span id="hero-seconds">00</span>
+                </div>
+            </div>
+            <p>HAKKINDA BİLGİSİ</p>
+            <div class="hero-buttons">
+                <a href="apply.html" class="btn">Başvuru Yap</a>
+                <a href="about.html" class="btn-outline">Daha Fazla Bilgi</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Sponsorlar -->
+    <section class="sponsors">
+        <div class="container">
+            <h2>Sponsorlarımız</h2>
+            <div class="sponsor-logos">
+                <img src="images/sponsors/sponsor1.png" alt="Sponsor 1">
+                <img src="images/sponsors/sponsor2.png" alt="Sponsor 2">
+                <img src="images/sponsors/sponsor3.png" alt="Sponsor 3">
+                <img src="images/sponsors/sponsor4.png" alt="Sponsor 4">
+            </div>
+        </div>
+    </section>
+<center>
+    <!-- Misyon & Vizyon -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mv-boxes">
+                <div class="mv-box">
+                    <i class="fas fa-bullseye"></i>
+                    
+                    
+                    <div class="image-toggle-container" onclick="toggleImages(this)">
+                        <img src="image/misyonumuz.jpg" alt="Misyonumuz" class="toggle-image active" />
+                        <img src="image/misyon-metin.jpg" alt="Misyon" class="toggle-image" />
+                    
+                    </div>
+                    
+                </div>
+                <div class="mv-box">
+                    <i class="fas fa-eye"></i>
+                                      
+                    <div class="image-toggle-container" onclick="toggleImages(this)">
+                        <img src="image/vizyonumuz.jpg" alt="Vizyonumuz" class="toggle-image active" />
+                        <img src="image/vizyon-metin.jpg" alt="Vizyon" class="toggle-image" />
+                  
+                </div>
+                    <b></b>
+                </div>
+                <div class="mv-box">
+                    <i class="fas fa-heart"></i>
+                    
+                  
+                    <div class="image-toggle-container" onclick="toggleImages(this)">
+                        <img src="image/konparlamento-yazı.png" alt="Parlamento" class="toggle-image active" />
+                        <img src="image/parlamento.jpg" alt="Parlamento" class="toggle-image" />
+                                  
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+
+
+    <!-- SSS Bölümü -->
+    <section class="faq-section">
+  <div class="container">
+    <h2>Sıkça Sorulan Sorular</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="answer1" id="question1">
+        <span class="faq-icon">?</span> Nasıl başvuru yapabilirim?
+      </button>
+      <div id="answer1" class="faq-answer" role="region" aria-labelledby="question1" hidden>
+        Başvuru sayfamızdan online olarak başvurunuzu yapabilir veya doğrudan ofisimize gelerek başvuru formunu doldurabilirsiniz.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="answer2" id="question2">
+        <span class="faq-icon">?</span> Etkinliklere nasıl katılabilirim?
+      </button>
+      <div id="answer2" class="faq-answer" role="region" aria-labelledby="question2" hidden>
+        Etkinliklerimiz sayfasından yaklaşan etkinlikleri görüntüleyebilir ve kayıt olabilirsiniz. Bazı etkinlikler ücretsizdir.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="answer3" id="question3">
+        <span class="faq-icon">?</span> Gönüllü olarak nasıl katkıda bulunabilirim?
+      </button>
+      <div id="answer3" class="faq-answer" role="region" aria-labelledby="question3" hidden>
+        Gönüllü başvuru formunu doldurarak bizimle iletişime geçebilirsiniz. Farklı alanlarda gönüllülük imkanları sunuyoruz.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="answer4" id="question4">
+        <span class="faq-icon">?</span> Bağış yapma süreçleri nasıl işliyor?
+      </button>
+      <div id="answer4" class="faq-answer" role="region" aria-labelledby="question4" hidden>
+        Bağış yapmak için bizimle iletişime geçebilir veya web sitemizden online bağış yapabilirsiniz. Tüm bağışlar yasal çerçevede işlenmektedir.
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
+                    <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
+                    <p> Her Dem Yeniden </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="commisions.html">Komisyonlar</a></li>
+                        <li><a href="team.html">Ekip</a></li>
+                        <li><a href="events.html">Organizasyonlar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="apply.html">Başvuru Yap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 000 xxx Caddesi, Konya</p>
+                    <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
+                </div>
+                
+            </div>
+        </div>
+        
+    </footer>
+    
+    <script>
+//S.S.S. Bölümü açılır kapanır cevap 
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', !expanded);
+      const answerId = button.getAttribute('aria-controls');
+      const answer = document.getElementById(answerId);
+      if (answer) {
+        if (expanded) {
+          answer.hidden = true;
+        } else {
+          answer.hidden = false;
+        }
+      }
+    });
+  });
+    </script>
+
+    <script>
+      function toggleImages(container) {
+  const images = container.querySelectorAll('.toggle-image');
+  if (images.length === 2) {
+    images.forEach(img => img.classList.toggle('active'));
+  }
+}
+
+    </script>
+
+   <script src="script.js"></script>
+</body>
+</html>
