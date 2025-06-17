@@ -124,6 +124,52 @@ header {
   background-color: #d18e00;
   outline: none;
 }
+
+/* Komisyonlar Bölümü */
+.commission-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.commission-item {
+  background-color: #fff;
+  padding: 20px;
+  border-left: 5px solid #0077cc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Komisyon Üyeleri */
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.member-card {
+  background-color: #fff;
+  padding: 15px;
+  flex: 1 1 200px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.member-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.member-card h4 {
+  margin: 10px 0 5px;
+  color: #0077cc;
+}
+
     /* Header */
     header {
       background-color: #000;
