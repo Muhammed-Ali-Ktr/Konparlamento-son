@@ -50,10 +50,12 @@
 .contact-info i {
   color: #888;
 }
+
 /* Ana Navigasyon */
 header {
   background-color: #000;
   border-bottom: 1px solid #222;
+  position: relative;
 }
 
 .main-nav .container {
@@ -124,47 +126,15 @@ header {
   background-color: #d18e00;
   outline: none;
 }
-        .section-title {
-            text-align: center;
-            margin: 40px 0 20px;
-            font-size: 2rem;
-            font-weight: 700;
-        }
 
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            width: 250px;
-            text-align: center;
-        }
-
-        .card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .card h3 {
-            margin: 10px 0 5px;
-            font-size: 1.1rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #555;
-        }
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 
 /* Genel Ayarlar */
 * {
@@ -175,59 +145,198 @@ header {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #000;
+  color: #fff;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-/* Başlıklar */
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  border-left: 5px solid #0077cc;
-  padding-left: 10px;
-  color: #0077cc;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Komisyonlar Bölümü */
-.commission-list {
+/* Komiteler Başlığı */
+h1.page-title {
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #fff;
+  user-select: none;
+  text-align: left;
+}
+
+/* Komite Grid */
+.committee-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 15px;
+  margin-bottom: 40px;
 }
 
-.commission-item {
-  background-color: #fff;
-  padding: 20px;
-  border-left: 5px solid #0077cc;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+/* Her Komite Kartı */
+.committee-card {
+  position: relative;
+  height: 180px;
   border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgb(255 255 255 / 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
 }
 
-/* Komisyon Üyeleri */
-.member-list {
+.committee-card:hover,
+.committee-card:focus-within {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgb(255 255 255 / 0.3);
+  outline: none;
+  z-index: 1;
+}
+
+/* Arka Plan Resmi */
+.committee-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+  filter: brightness(0.4);
+  transition: filter 0.3s ease;
+  z-index: 0;
+}
+
+.committee-card:hover::before,
+.committee-card:focus-within::before {
+  filter: brightness(0.6);
+}
+
+/* Başlık ve Alt Yazı */
+.committee-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 15px;
+}
+
+.committee-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+.committee-subtitle {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.8;
+  user-select: none;
+}
+
+/* Arka Plan Resimleri */
+.education { background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80'); }
+.constitution { background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80'); }
+.foreign-affairs { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'); }
+.interior { background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=80'); }
+.justice { background-image: url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80'); }
+.defense { background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80'); }
+
+/* Komisyon Detay Açılır Bölümü */
+.committee-details {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.committee-details.open {
+  max-height: 1000px;
+  padding: 20px;
+}
+
+.committee-details h3 {
+  color: #f0a500;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.committee-details p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.committee-details ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.committee-details li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.committee-details li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #f0a500;
+}
+
+/* Komisyon Üyeleri Bölümü */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  margin-top: 10px;
+  padding: 0 20px;
+  margin-bottom: 40px;
 }
 
-.member-card {
-  background-color: #fff;
-  padding: 15px;
-  flex: 1 1 200px;
-  border-radius: 8px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+.card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  width: 280px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.member-card img {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.card img {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -235,202 +344,192 @@ section h2 {
   margin-bottom: 10px;
 }
 
-.member-card h4 {
+.card h3 {
   margin: 10px 0 5px;
-  color: #0077cc;
+  font-size: 1.1rem;
+  color: #fff;
 }
 
-    /* Header */
-    header {
-      background-color: #000;
-      padding: 15px 0;
-      border-bottom: 1px solid #222;
-    }
-    .main-nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      font-size: 1.5rem;
-      color: #fff;
-    }
-    .logo img {
-      height: 40px;
-      width: auto;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
-    .nav-links li a {
-      font-weight: 600;
-      padding: 8px 12px;
-      transition: color 0.3s ease;
-    }
-    .nav-links li a:hover,
-    .nav-links li a:focus {
-      color: #ddd;
-      outline: none;
-    }
-    .btn {
-      background-color: #fff;
-      color: #000;
-      font-weight: 700;
-      padding: 8px 20px;
-      border-radius: 3px;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover,
-    .btn:focus {
-      background-color: #ddd;
-      outline: none;
-    }
+.card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
 
+.card .btn {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  padding: 6px 16px;
+}
 
-    /* Genel Sıfırlama */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+/* Modal Stilleri */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-    /* Container */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
+.modal-content {
+  background-color: #111;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
 
-   
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* Komiteler Başlığı */
-    h1.page-title {
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: #fff;
-      user-select: none;
-      text-align: left;
-    }
+.close {
+  color: #ccc;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
 
-    /* Komite Grid */
-    .committee-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-    }
+.close:hover {
+  color: #fff;
+}
 
-    /* Her Komite Kartı */
-    .committee-card {
-      position: relative;
-      height: 180px;
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 0 8px rgb(255 255 255 / 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-    .committee-card:hover,
-    .committee-card:focus-within {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgb(255 255 255 / 0.3);
-      outline: none;
-      z-index: 1;
-    }
+.modal h2 {
+  color: #f0a500;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
 
-    /* Arka Plan Resmi */
-    .committee-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center center;
-      filter: brightness(0.4);
-      transition: filter 0.3s ease;
-      z-index: 0;
-    }
-    .committee-card:hover::before,
-    .committee-card:focus-within::before {
-      filter: brightness(0.6);
-    }
+.modal img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  display: block;
+}
 
-    /* Başlık ve Alt Yazı */
-    .committee-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 15px;
-    }
-    .committee-title {
-      font-weight: 700;
-      font-size: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-bottom: 6px;
-      user-select: none;
-    }
-    .committee-subtitle {
-      font-size: 0.85rem;
-      font-weight: 400;
-      opacity: 0.8;
-      user-select: none;
-    }
+.modal p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #ccc;
+}
 
-    /* Arka Plan Resimleri (örnek) */
-    .trusteeship { background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'); }
-    .international-idea { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'); }
-    .united-cities { background-image: url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=800&q=80'); }
-    .jcc { background-image: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=800&q=80'); }
-    .francophone { background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80'); }
-    .jcc-ww2 { background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80'); }
-    .h-nac { background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'); }
-    .turkic-union { background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80'); }
-    .legal { background-image: url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80'); }
+.modal .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 15px 0;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      h1.page-title {
-        text-align: center;
-        font-size: 2rem;
-      }
-      .committee-card {
-        height: 160px;
-      }
-    }
-    @media (max-width: 480px) {
-      .committee-card {
-        height: 140px;
-      }
-    }
-/* Mobil */
-@media (max-width: 600px) {
-  /* Üst navigasyon alt alta */
+.modal .tag {
+  background: #333;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  padding: 40px 0 20px;
+  margin-top: auto;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  color: #ccc;
+}
+
+.footer-about {
+  max-width: 300px;
+}
+
+.footer-about img {
+  width: 150px;
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  margin-top: 15px;
+}
+
+.footer-social a {
+  margin-right: 15px;
+  color: #ccc;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #f0a500;
+}
+
+.footer-links {
+  min-width: 150px;
+}
+
+.footer-links h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #f0a500;
+}
+
+.footer-contact {
+  min-width: 150px;
+}
+
+.footer-contact h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-contact p {
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+.footer-contact i {
+  margin-right: 8px;
+  color: #f0a500;
+}
+
+/* Mobil Responsive */
+@media (max-width: 768px) {
   .top-nav .container {
     flex-direction: column;
     align-items: flex-start;
@@ -441,21 +540,24 @@ section h2 {
     margin-left: 0;
   }
 
-  /* Ana navigasyon mobil menü */
+  .mobile-menu-btn {
+    display: block;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     background-color: #000;
     position: absolute;
-    top: 65px;
+    top: 100%;
     left: 0;
     padding: 15px 0;
     border-top: 1px solid #222;
     z-index: 999;
   }
 
-  .nav-links.show {
+  .nav-links.open {
     display: flex;
   }
 
@@ -464,11 +566,6 @@ section h2 {
     text-align: center;
   }
 
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  /* Butonlar tam genişlik */
   .btn {
     display: block;
     width: 90%;
@@ -476,22 +573,36 @@ section h2 {
     text-align: center;
   }
 
-  /* Sayfa başlığı yazıları küçülür */
-  .page-hero h1 {
-    font-size: 2.2rem;
+  h1.page-title {
+    text-align: center;
+    font-size: 2rem;
   }
 
-  .page-hero p {
-    font-size: 1rem;
+  .committee-card {
+    height: 160px;
+  }
+
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .committee-card {
+    height: 140px;
   }
 }
   </style>
 </head>
 <body>
-
- 
-
-    <!-- Ana Navigasyon (index.html ile aynı) -->
+    <!-- Ana Navigasyon -->
     <header>
         <nav class="main-nav">
             <div class="container">
@@ -502,178 +613,445 @@ section h2 {
                 <ul class="nav-links">
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
-                    <li><a href="commisions.html">Komisyonlar</a></li>
-                    <li><a href="team.html">Ekip</a></li>
+                    <li><a href="commisions.html" class="active">Komisyonlar</a></li>
                     <li><a href="events.html">Organizasyonlar</a></li>
-                    <li><a href="gallery.html" class="active">Galeri</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
                     <li><a href="contact.html">İletişim</a></li>
                     <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
                 </ul>
-                <div class="mobile-menu-btn">
+                <button class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
-  <!-- Komisyonlar Bölümü -->
-  <main class="container" style="flex-grow:1;">
-    <h1 class="page-title">Komisyonlar</h1>
-    <div class="committee-grid">
-      <a href="#" class="committee-card trusteeship" tabindex="0" aria-label="Trusteeship Council">
-        <div class="committee-content">
-          <div class="committee-title">Milli Eğitim, Kültür, Gençlik ve Spor Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
+    <!-- Komisyonlar Bölümü -->
+    <main class="container" style="flex-grow:1;">
+        <h1 class="page-title">Komisyonlar</h1>
+        <div class="committee-grid">
+            <div>
+                <div class="committee-card education" data-committee="education" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">Milli Eğitim, Kültür, Gençlik ve Spor Komisyonu</div>
+                        <div class="committee-subtitle">Eğitim ve Kültür</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="education-details">
+                    <h3>Milli Eğitim, Kültür, Gençlik ve Spor Komisyonu</h3>
+                    <p>Bu komisyon, eğitim sisteminin iyileştirilmesi, kültürel değerlerin korunması ve gençlerin toplumsal katılımının artırılması konularında çalışmalar yürütmektedir.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Eğitim politikalarının geliştirilmesi</li>
+                        <li>Kültürel mirasın korunması</li>
+                        <li>Gençlik projelerinin desteklenmesi</li>
+                        <li>Spor faaliyetlerinin koordinasyonu</li>
+                        <li>Okul öncesi eğitim programları</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="committee-card constitution" data-committee="constitution" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">Anayasa Komisyonu</div>
+                        <div class="committee-subtitle">Hukuk ve Anayasa</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="constitution-details">
+                    <h3>Anayasa Komisyonu</h3>
+                    <p>Anayasal hakların korunması, hukuk sisteminin geliştirilmesi ve demokratik değerlerin güçlendirilmesi konularında faaliyet göstermektedir.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Anayasal hakların izlenmesi</li>
+                        <li>Hukuki reformların desteklenmesi</li>
+                        <li>Demokrasi eğitimi programları</li>
+                        <li>İnsan hakları projeleri</li>
+                        <li>Hukuki bilinçlendirme faaliyetleri</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="committee-card foreign-affairs" data-committee="foreign" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">Dışişleri Komisyonu</div>
+                        <div class="committee-subtitle">Uluslararası İlişkiler</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="foreign-details">
+                    <h3>Dışişleri Komisyonu</h3>
+                    <p>Uluslararası ilişkilerin geliştirilmesi, diplomasi alanında çalışmalar ve küresel işbirliği projelerinde aktif rol almaktadır.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Uluslararası işbirliği projeleri</li>
+                        <li>Diplomatik ilişkilerin geliştirilmesi</li>
+                        <li>Kültürel değişim programları</li>
+                        <li>Küresel barış inisiyatifleri</li>
+                        <li>Uluslararası konferans organizasyonları</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="committee-card interior" data-committee="interior" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">İçişleri Komisyonu</div>
+                        <div class="committee-subtitle">İç Güvenlik ve Yönetim</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="interior-details">
+                    <h3>İçişleri Komisyonu</h3>
+                    <p>Toplumsal güvenlik, yerel yönetim ve vatandaş hizmetlerinin iyileştirilmesi konularında çalışmalar yürütmektedir.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Toplumsal güvenlik projeleri</li>
+                        <li>Yerel yönetim destekleri</li>
+                        <li>Vatandaş hizmetleri geliştirme</li>
+                        <li>Acil durum koordinasyonu</li>
+                        <li>Sivil savunma eğitimleri</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="committee-card justice" data-committee="justice" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">Adalet Komisyonu</div>
+                        <div class="committee-subtitle">Hukuk ve Adalet</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="justice-details">
+                    <h3>Adalet Komisyonu</h3>
+                    <p>Adalet sisteminin güçlendirilmesi, hukuki süreçlerin iyileştirilmesi ve adalete erişimin artırılması konularında faaliyet göstermektedir.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Adalet sisteminin modernizasyonu</li>
+                        <li>Hukuki danışmanlık hizmetleri</li>
+                        <li>Adalete erişim projeleri</li>
+                        <li>Alternatif çözüm yöntemleri</li>
+                        <li>Hukuki farkındalık kampanyaları</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="committee-card defense" data-committee="defense" tabindex="0">
+                    <div class="committee-content">
+                        <div class="committee-title">Milli Savunma Komisyonu</div>
+                        <div class="committee-subtitle">Güvenlik ve Savunma</div>
+                    </div>
+                </div>
+                <div class="committee-details" id="defense-details">
+                    <h3>Milli Savunma Komisyonu</h3>
+                    <p>Ulusal güvenlik, savunma politikaları ve stratejik planlama konularında araştırmalar ve projeler yürütmektedir.</p>
+                    <h4 style="color: #f0a500; margin: 15px 0 10px;">Görev Alanları:</h4>
+                    <ul>
+                        <li>Ulusal güvenlik stratejileri</li>
+                        <li>Savunma teknolojileri araştırması</li>
+                        <li>Stratejik planlama çalışmaları</li>
+                        <li>Güvenlik bilinç eğitimleri</li>
+                        <li>Uluslararası güvenlik işbirliği</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </a>
-      <a href="#" class="committee-card international-idea" tabindex="0" aria-label="International Idea">
-        <div class="committee-content">
-          <div class="committee-title">Anayasa Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card united-cities" tabindex="0" aria-label="United Cities and Local Governments">
-        <div class="committee-content">
-          <div class="committee-title">Dışişleri Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card jcc" tabindex="0" aria-label="JCC">
-        <div class="committee-content">
-          <div class="committee-title">İçişleri Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card francophone" tabindex="0" aria-label="Francophone">
-        <div class="committee-content">
-          <div class="committee-title">Adalet Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card jcc-ww2" tabindex="0" aria-label="JCC - Enlisted World War II">
-        <div class="committee-content">
-          <div class="committee-title">Milli Savunma Komisyonu</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card h-nac" tabindex="0" aria-label="H-NAC">
-        <div class="committee-content">
-          <div class="committee-title">XXX</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card turkic-union" tabindex="0" aria-label="Turkic Union">
-        <div class="committee-content">
-          <div class="committee-title">XXX</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-      <a href="#" class="committee-card legal" tabindex="0" aria-label="Legal">
-        <div class="committee-content">
-          <div class="committee-title">XXX</div>
-          <div class="committee-subtitle">XXX</div>
-        </div>
-      </a>
-    </div>
-  </main>
+    </main>
 
     <!-- Komisyon Üyeleri Bölümü -->
-<section>
-    <h2 class="section-title">Komisyon Üyeleri</h2>
-    <div class="card-container">
-        <div class="card">
-            <img src="image/users/user1.jpg" alt="Ayşe Yılmaz" />
-            <h3>Ayşe Yılmaz</h3>
-            <p><strong>Başkan</strong> - Eğitim Komisyonu</p>
-            <p>İstanbul Üniversitesi Eğitim Fakültesi mezunu, gençlerin eğitime erişimini artırmak için projeler yürütmektedir.</p>
-            <div style="margin-top: 10px;">
-                <span style="background: #e0f7fa; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Pedagoji</span>
-                <span style="background: #e8f5e9; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Proje Lideri</span>
+    <section>
+        <h2 class="section-title">Komisyon Üyeleri</h2>
+        <div class="card-container">
+            <div class="card" data-member="ayse">
+                <img src="image/users/user1.jpg" alt="Ayşe Yılmaz" />
+                <h3>Ayşe Yılmaz</h3>
+                <p><strong>Başkan</strong> - Eğitim Komisyonu</p>
+                <p>İstanbul Üniversitesi Eğitim Fakültesi mezunu, gençlerin eğitime erişimini artırmak için projeler yürütmektedir.</p>
+                <div style="margin-top: 10px;">
+                    <span style="background: #333; color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Pedagoji</span>
+                    <span style="background: #333; color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Proje Lideri</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="mailto:ayse@konparlamento.org" class="btn">İletişim</a>
+                </div>
             </div>
-            <div style="margin-top: 10px;">
-                <a href="mailto:ayse@konparlamento.org" class="btn">İletişim</a>
+            <div class="card" data-member="mehmet">
+                <img src="image/users/user2.jpg" alt="Mehmet Kaya" />
+                <h3>Mehmet Kaya</h3>
+                <p><strong>Üye</strong> - Çevre Komisyonu</p>
+                <p>Doğa dostu uygulamaları savunan bir aktivisttir. Atık yönetimi ve geri dönüşüm üzerine çalışmalar yürütür.</p>
+                <div style="margin-top: 10px;">
+                    <span style="background: #333; color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Sürdürülebilirlik</span>
+                    <span style="background: #333; color: #fff; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Geri Dönüşüm</span>
+                </div>
+                <div style="margin-top: 10px;">
+                    <a href="mailto:mehmet@konparlamento.org" class="btn">İletişim</a>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Partiler Bölümü -->
+<section>
+    <h2 class="section-title">Partiler</h2>
+    <div class="card-container">
         <div class="card">
-            <img src="image/users/user2.jpg" alt="Mehmet Kaya" />
-            <h3>Mehmet Kaya</h3>
-            <p><strong>Üye</strong> - Çevre Komisyonu</p>
-            <p>Doğa dostu uygulamaları savunan bir aktivisttir. Atık yönetimi ve geri dönüşüm üzerine çalışmalar yürütür.</p>
-            <div style="margin-top: 10px;">
-                <span style="background: #e8f5e9; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Sürdürülebilirlik</span>
-                <span style="background: #fff3e0; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Geri Dönüşüm</span>
-            </div>
-            <div style="margin-top: 10px;">
-                <a href="mailto:mehmet@konparlamento.org" class="btn">İletişim</a>
-            </div>
+            <img src="image/liberal-demokrasi-partisi.jpg" alt="Liberal Demokrasi Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Liberal Demokrasi Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Söz Milletin, Türkiye Herkesin!"</em></p>
+            <p>Klasik Liberalizm, Liberal Demokrasi,Ekonomik Liberalizm, Pro-Avrupacılık,Muhafazakar Liberalizm</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN </li>
+                <li>📍 Merkez: Konya</li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <img src="image/sosyalist-anadolu-partisi.jpg" alt="Sosyalist Anadolu Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Sosyalist Anadolu Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Haydi Anadolu! Yola Gel, Sola Gel!"</em></p>
+            <p>Ulusalcılık, Avrasyacılık, Batı ve Nato Karşıtlığı, Sol Popülizm, Sosyalizm, Enternasyonalizm,Anti-emperyalizm, Komünizm, Sol Milliyetçilik, Milli Demokrat Devrim</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN </li>
+                <li>📍 Merkez: Konya</li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
+        </div>
+<div class="card">
+            <img src="image/demokratik-halk-partisi.jpg" alt="Demokratik Halk Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Demokratik Halk Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Cumhuriyeti Kuran Anlayışla Yeniden Büyük Türkiye!"</em></p>
+            <p>Sosyal Demokrasi, Kemalizm, Atatürkçülük, Cumhuriyetçilik,Demokratik Sosyalizm, Pro-Avrupacılık, Ulusalcılık, Sosyal Liberalizm, Laiklik </p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN </li>
+                <li>📍 Merkez: Konya </li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
+        </div>
+<div class="card">
+            <img src="image/milliyetçi-ülkü-partisi.jpg" alt="Milliyetçi Ülkü Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Milliyetçi Ülkü Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Tam Bağımsız ve Güçlü Türkiye'nin teminatıyız!"</em></p>
+            <p>Ülkücülük, Türk Miliyetçiliği, Türk-İslam Sentezi, Dokuz Işık, İslami Milliyetçilik, Turancılık, Neo-Faşizm, Milli Muhafazakârlık, Sağ Popülizm, Atatürkçülük, Avrupa Şüpheciliği</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN </li>
+                <li>📍 Merkez: Konya</li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
+        </div>
+<div class="card">
+            <img src="image/milli-şuur-partisi.jpg" alt="Milli Şuur Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Milli Şuur Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Türkiye Adil Düzen'e Koşuyor!"</em></p>
+            <p>Milli Görüş, Ümmetçilik, Antisiyonizm, İslamcılık, Sosyal Muhafazakârlık, Avrupa Şüpheciliği, Yeni Osmanlıcılık, Erbakancılık</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN</li>
+                <li>📍 Merkez: Konya</li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
+        </div>
+<div class="card">
+            <img src="image/türkiye-atılım-partisi.jpg" alt="Türkiye Atılım Partisi Logo" style="width: 60px; height: 60px;" />
+            <h3>Türkiye Atılım Partisi</h3>
+            <p><strong>Kuruluş:</strong> 2025</p>
+            <p><em>"Büyük Millet, Büyük Güç! Hedef : Türk yüzyılı!"</em></p>
+            <p>Muhafazakâr Demokrasi, Sağ Popülizm, Ilımlı Avrupa Şüpheciliği, İlliberalizm,Yeni Osmanlıcılık, Atlantikçilik, Pro-Avrupacılık, Siyasal İslamcılık, Ümmetçilik, Muhafazakârlık</p>
+            <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                <li>🎯 Amaç: METİN </li>
+                <li>📍 Merkez: Konya</li>
+                <li>🌐 Web: <a href="#">konparlamento.org</a></li>
+            </ul>
         </div>
     </div>
 </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content" style="display:flex; flex-wrap:wrap; gap: 30px; justify-content: space-between; color:#ccc;">
-        <div class="footer-about" style="max-width: 300px;">
-          <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" style="width:150px; margin-bottom: 15px;" />
-          <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
-          <p> Her Dem Yeniden </p>
-          <div class="footer-social" style="margin-top: 15px;">
-            <a href="#" style="margin-right: 15px; color:#ccc;"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" style="margin-right: 15px; color:#ccc;"><i class="fab fa-twitter"></i></a>
-            <a href="#" style="margin-right: 15px; color:#ccc;"><i class="fab fa-instagram"></i></a>
-            <a href="#" style="margin-right: 15px; color:#ccc;"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" style="color:#ccc;"><i class="fab fa-youtube"></i></a>
-          </div>
+    <!-- Modal -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <h2 id="modalName"></h2>
+            <p id="modalPosition"></p>
+            <p id="modalBio"></p>
+            <div class="tags" id="modalTags"></div>
+            <p><strong>İletişim:</strong> <span id="modalContact"></span></p>
         </div>
-        <div class="footer-links" style="min-width: 150px;">
-          <h3 style="color:#fff; margin-bottom: 10px;">Hızlı Linkler</h3>
-          <ul style="list-style:none; padding-left:0;">
-            <li><a href="index.html">Ana Sayfa</a></li>
-            <li><a href="about.html">Hakkımızda</a></li>
-            <li><a href="commisions.html">Komisyonlar</a></li>
-            <li><a href="team.html">Ekip</a></li>
-            <li><a href="events.html">Organizasyonlar</a></li>
-            <li><a href="gallery.html">Galeri</a></li>
-            <li><a href="contact.html">İletişim</a></li>
-            <li><a href="apply.html">Başvuru Yap</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact" style="min-width: 150px;">
-          <h3 style="color:#fff; margin-bottom: 10px;">İletişim</h3>
-          <p><i class="fas fa-map-marker-alt"></i> 000 xxx Caddesi, Konya</p>
-          <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
-          <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
-        </div>
-      </div>
     </div>
-  </footer>
-  <script>
-    // Mobil menü aç/kapa
-const menuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
 
-if(menuBtn && navLinks){
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    menuBtn.querySelector('i').classList.toggle('fa-bars');
-    menuBtn.querySelector('i').classList.toggle('fa-times');
-  });
-}
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" />
+                    <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
+                    <p>Her Dem Yeniden</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="commisions.html">Komisyonlar</a></li>
+                        <li><a href="events.html">Organizasyonlar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="apply.html">Başvuru Yap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 000 xxx Caddesi, Konya</p>
+                    <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Tügva Vakfı. Tüm hakları saklıdır.</p>     
+            </div>
+        </div>
+    </footer>
 
-// Klavyeyle komite kartlarına odaklanınca hover efekti için (opsiyonel)
-const cards = document.querySelectorAll('.committee-card');
+    <script>
+        // Mobil menü aç/kapa
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
 
-cards.forEach(card => {
-  card.addEventListener('focus', () => {
-    card.classList.add('hover');
-  });
-  card.addEventListener('blur', () => {
-    card.classList.remove('hover');
-  });
-});
+        if(menuBtn && navLinks){
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                menuBtn.querySelector('i').classList.toggle('fa-bars');
+                menuBtn.querySelector('i').classList.toggle('fa-times');
+            });
+        }
 
-  </script>
-  <script src="script.js"></script>
+        // Komisyon kartları tıklama olayları
+        const committeeCards = document.querySelectorAll('.committee-card');
+        
+        committeeCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const committee = card.getAttribute('data-committee');
+                const detailsId = committee + '-details';
+                const details = document.getElementById(detailsId);
+                
+                if (details) {
+                    // Diğer açık detayları kapat
+                    document.querySelectorAll('.committee-details.open').forEach(openDetail => {
+                        if (openDetail.id !== detailsId) {
+                            openDetail.classList.remove('open');
+                        }
+                    });
+                    
+                    // Mevcut detayı aç/kapat
+                    details.classList.toggle('open');
+                }
+            });
+
+            // Klavye erişimi için
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        // Üye detayları
+        const memberData = {
+            ayse: {
+                name: 'Ayşe Yılmaz',
+                position: 'Başkan - Eğitim Komisyonu',
+                bio: 'İstanbul Üniversitesi Eğitim Fakültesi mezunu olan Ayşe Yılmaz, 8 yıldır eğitim alanında çalışmaktadır. Gençlerin eğitime erişimini artırmak, kaliteli eğitim fırsatları sunmak ve eğitimde fırsat eşitliğini sağlamak için birçok proje yürütmüştür. Aynı zamanda pedagoji alanında uzmanlaşmış olup, öğretmen yetiştirme programlarında da aktif rol almaktadır.',
+                tags: ['Pedagoji', 'Proje Lideri', 'Eğitim Uzmanı', 'Öğretmen Eğitimi'],
+                contact: 'ayse@konparlamento.org',
+                image: 'image/users/user1.jpg'
+            },
+            mehmet: {
+                name: 'Mehmet Kaya',
+                position: 'Üye - Çevre Komisyonu',
+                bio: 'Çevre Mühendisliği mezunu olan Mehmet Kaya, sürdürülebilir yaşam konusunda aktif bir savunucudur. 6 yıldır atık yönetimi, geri dönüşüm ve çevre koruma projerlerinde yer almaktadır. Yeşil teknolojiler üzerine araştırmalar yapmakta ve toplumsal bilinçlendirme çalışmaları yürütmektedir. Ayrıca çevre dostu ürün geliştirme projelerinde danışmanlık hizmeti vermektedir.',
+                tags: ['Sürdürülebilirlik', 'Geri Dönüşüm', 'Çevre Koruma', 'Yeşil Teknoloji'],
+                contact: 'mehmet@konparlamento.org',
+                image: 'image/users/user2.jpg'
+            }
+        };
+
+        // Üye kartları tıklama olayları
+        const memberCards = document.querySelectorAll('.card[data-member]');
+        const modal = document.getElementById('memberModal');
+        const closeModal = document.querySelector('.close');
+
+        memberCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const memberId = card.getAttribute('data-member');
+                const member = memberData[memberId];
+                
+                if (member) {
+                    document.getElementById('modalImage').src = member.image;
+                    document.getElementById('modalImage').alt = member.name;
+                    document.getElementById('modalName').textContent = member.name;
+                    document.getElementById('modalPosition').textContent = member.position;
+                    document.getElementById('modalBio').textContent = member.bio;
+                    document.getElementById('modalContact').textContent = member.contact;
+                    
+                    // Etiketleri güncelle
+                    const tagsContainer = document.getElementById('modalTags');
+                    tagsContainer.innerHTML = '';
+                    member.tags.forEach(tag => {
+                        const tagSpan = document.createElement('span');
+                        tagSpan.className = 'tag';
+                        tagSpan.textContent = tag;
+                        tagsContainer.appendChild(tagSpan);
+                    });
+                    
+                    modal.style.display = 'block';
+                }
+            });
+        });
+
+        // Modal kapatma olayları
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // ESC tuşu ile modal kapatma
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Klavyeyle komite kartlarına odaklanınca hover efekti için
+        const cards = document.querySelectorAll('.committee-card');
+
+        cards.forEach(card => {
+            card.addEventListener('focus', () => {
+                card.classList.add('hover');
+            });
+            card.addEventListener('blur', () => {
+                card.classList.remove('hover');
+            });
+        });
+    </script>
 </body>
 </html>
