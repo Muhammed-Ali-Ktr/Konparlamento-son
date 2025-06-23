@@ -79,6 +79,7 @@ body {
 header {
   background-color: #000;
   border-bottom: 1px solid #222;
+  position: relative;
 }
 
 .main-nav .container {
@@ -97,7 +98,6 @@ header {
   font-size: 1.5rem;
   color: #fff;
   user-select: none;
-  text-decoration: none;
 }
 
 .logo img {
@@ -120,7 +120,6 @@ header {
   border-radius: 4px;
   transition: background-color 0.3s ease, color 0.3s ease;
   user-select: none;
-  text-decoration: none;
 }
 
 .nav-links li a:hover,
@@ -144,14 +143,21 @@ header {
   border-radius: 3px;
   transition: background-color 0.3s ease;
   user-select: none;
-  text-decoration: none;
-  display: inline-block;
 }
 
 .btn:hover,
 .btn:focus {
   background-color: #d18e00;
   outline: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Mobil Menü Butonu */
@@ -590,7 +596,6 @@ footer {
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
                     <li><a href="commisions.html">Komiteler</a></li>
-                    <li><a href="team.html">Ekip</a></li>
                     <li><a href="events.html"class="active">Organizasyonlar</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
                     <li><a href="contact.html">İletişim</a></li>
@@ -744,7 +749,6 @@ footer {
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="about.html">Hakkımızda</a></li>
                         <li><a href="commisions.html">Komisyonlar</a></li>
-                        <li><a href="team.html">Ekip</a></li>
                         <li><a href="events.html">Organizasyonlar</a></li>
                         <li><a href="gallery.html">Galeri</a></li>
                         <li><a href="contact.html">İletişim</a></li>
@@ -762,11 +766,6 @@ footer {
         <div class="footer-bottom">
             <div class="container">
                 <p>&copy; 2025 Konparlamento. Tüm hakları saklıdır.</p>
-                <div class="footer-legals">
-                    <a href="#">Gizlilik Politikası</a>
-                    <a href="#">Çerez Politikası</a>
-                    <a href="#">Kullanım Şartları</a>
-                </div>
             </div>
         </div>
     </footer>
