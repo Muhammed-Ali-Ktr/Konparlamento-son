@@ -5,911 +5,699 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <meta name="description" content="Konparlamento hakkında detaylı bilgi edinin. Misyonumuz, vizyonumuz, ekip üyelerimiz ve sosyal sorumluluk projelerimiz.">
     <title>Konparlamento | Hakkımızda</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="image/konparlamento-logo.png" type="image/PNG">
     <style>
         /* Temel Reset ve Global Stiller */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            min-height: 100vh;
-            scroll-behavior: smooth;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
 
-        /* Üst Navigasyon */
-        .top-nav {
-            background-color: #111;
-            padding: 8px 0;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #222;
-        }
+/* Ana Navigasyon */
+header {
+    background-color: #000;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .top-nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+.main-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
 
-        .social-links a {
-            color: #ccc;
-            margin-right: 12px;
-            transition: color 0.3s ease;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #fff;
+    user-select: none;
+}
 
-        .social-links a:last-child {
-            margin-right: 0;
-        }
+.logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
 
-        .social-links a:hover,
-        .social-links a:focus {
-            color: #fff;
-            outline: none;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
 
-        .contact-info span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #ccc;
-            margin-left: 15px;
-        }
+.nav-links li a {
+    color: #ccc;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    user-select: none;
+    font-size: 0.95rem;
+}
 
-        .contact-info i {
-            color: #888;
-            font-size: 0.9rem;
-        }
+.nav-links li a:hover,
+.nav-links li a:focus {
+    background-color: #222;
+    color: #fff;
+    outline: none;
+}
 
-        /* Ana Navigasyon */
-        header {
-            background-color: #000;
-            border-bottom: 1px solid #222;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.nav-links li a.active {
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 2px solid #fff;
+}
 
-        .main-nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            flex-wrap: wrap;
-        }
+.btn {
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    user-select: none;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: #fff;
-            user-select: none;
-        }
+.btn:hover,
+.btn:focus {
+    background-color: #ddd;
+    outline: none;
+    transform: translateY(-2px);
+}
 
-        .logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+/* Mobil Menü Butonu */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    border: none;
+    padding: 5px;
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
+/* Sayfa Hero Bölümü */
+.page-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/about-hero.jpg') center/cover no-repeat;
+    padding: 100px 0;
+    text-align: center;
+    user-select: none;
+}
 
-        .nav-links li a {
-            color: #ccc;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            user-select: none;
-            font-size: 0.95rem;
-        }
+.page-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
 
-        .nav-links li a:hover,
-        .nav-links li a:focus {
-            background-color: #222;
-            color: #fff;
-            outline: none;
-        }
+.page-hero p {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+}
 
-        .nav-links li a.active {
-            color: #fff;
-            font-weight: 700;
-            border-bottom: 2px solid #fff;
-        }
+/* Hakkımızda Bölümü */
+.about-section {
+    padding: 60px 0;
+}
 
-        .btn {
-            background-color: #fff;
-            color: #000;
-            font-weight: 700;
-            padding: 8px 20px;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            user-select: none;
-            display: inline-block;
-            text-align: center;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-        .btn:hover,
-        .btn:focus {
-            background-color: #ddd;
-            outline: none;
-            transform: translateY(-2px);
-        }
+.section-title h2 {
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    user-select: none;
+}
 
-        /* Mobil Menü Butonu */
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: #fff;
-            cursor: pointer;
-            user-select: none;
-            background: none;
-            border: none;
-            padding: 5px;
-        }
+.section-title p {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 0;
+    user-select: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-        /* Sayfa Hero Bölümü */
-        .page-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/about-hero.jpg') center/cover no-repeat;
-            padding: 100px 0;
-            text-align: center;
-            user-select: none;
-        }
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        .page-hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 15px;
-            color: #fff;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
+.about-text {
+    flex: 1 1 500px;
+    font-size: 1rem;
+    color: #ddd;
+    line-height: 1.7;
+}
 
-        .page-hero p {
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+.about-text p {
+    margin-bottom: 20px;
+}
 
-        /* Hakkımızda Bölümü */
-        .about-section {
-            padding: 60px 0;
-        }
+.achievements {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.achievement-item {
+    flex: 1 1 120px;
+    background-color: #111;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    user-select: none;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
 
-        .section-title h2 {
-            font-weight: 900;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-            user-select: none;
-        }
+.achievement-item:hover {
+    background-color: #222;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.2);
+}
 
-        .section-title p {
-            font-size: 1rem;
-            color: #aaa;
-            margin-bottom: 0;
-            user-select: none;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.achievement-item i {
+    font-size: 2.5rem;
+    color: #f0a500;
+    margin-bottom: 10px;
+}
 
-        .about-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+.achievement-item h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #fff;
+}
 
-        .about-text {
-            flex: 1 1 500px;
-            font-size: 1rem;
-            color: #ddd;
-            line-height: 1.7;
-        }
+.achievement-item p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 0;
+}
 
-        .about-text p {
-            margin-bottom: 20px;
-        }
+.about-image {
+    flex: 1 1 400px;
+    text-align: center;
+}
 
-        .achievements {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+.about-image img {
+    max-width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.4);
+    user-select: none;
+    transition: transform 0.3s ease;
+}
 
-        .achievement-item {
-            flex: 1 1 120px;
-            background-color: #111;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            user-select: none;
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
+.about-image img:hover {
+    transform: scale(1.02);
+}
 
-        .achievement-item:hover {
-            background-color: #222;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(240, 165, 0, 0.2);
-        }
+/* Ekibimiz Bölümü */
+.team-section {
+    padding: 60px 0;
+    background-color: #0a0a0a;
+}
 
-        .achievement-item i {
-            font-size: 2.5rem;
-            color: #f0a500;
-            margin-bottom: 10px;
-        }
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    user-select: none;
+}
 
-        .achievement-item h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #fff;
-        }
+.team-member {
+    background-color: #111;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
 
-        .achievement-item p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 0;
-        }
+.team-member:hover {
+    background-color: #222;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.2);
+}
 
-        .about-image {
-            flex: 1 1 400px;
-            text-align: center;
-        }
+.team-member img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+}
 
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(240, 165, 0, 0.4);
-            user-select: none;
-            transition: transform 0.3s ease;
-        }
+.team-member h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 6px;
+}
 
-        .about-image img:hover {
-            transform: scale(1.02);
-        }
+.team-member p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 12px;
+}
 
-        /* Ekibimiz Bölümü */
-        .team-section {
-            padding: 60px 0;
-            background-color: #0a0a0a;
-        }
+.member-social {
+    margin-top: 15px;
+}
 
-        .team-members {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            user-select: none;
-        }
+.member-social a {
+    color: #ccc;
+    margin: 0 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
 
-        .team-member {
-            background-color: #111;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
+.member-social a:hover,
+.member-social a:focus {
+    color: #f0a500;
+    outline: none;
+}
 
-        .team-member:hover {
-            background-color: #222;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(240, 165, 0, 0.2);
-        }
+/* Ekip Üyeleri Bölümü */
+.team-cards-section {
+    padding: 60px 0;
+    background-color: #0a0a0a;
+}
 
-        .team-member img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 2px solid #333;
-        }
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+}
 
-        .team-member h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 6px;
-        }
+.card {
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px 25px;
+    width: 320px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
 
-        .team-member p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 12px;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(240, 165, 0, 0.3);
+    background-color: #1a1a1a;
+}
 
-        .member-social {
-            margin-top: 15px;
-        }
+.card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid #f0a500;
+}
 
-        .member-social a {
-            color: #ccc;
-            margin: 0 8px;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
+.card h3 {
+    margin: 15px 0 8px;
+    font-size: 1.3rem;
+    color: #fff;
+}
 
-        .member-social a:hover,
-        .member-social a:focus {
-            color: #f0a500;
-            outline: none;
-        }
+.card p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 0;
+}
 
-        /* Ekip Üyeleri Bölümü */
-    .team-cards-section {
-        padding: 60px 0;
-        background-color: #0a0a0a;
+/* Footer */
+footer {
+    background-color: #111;
+    color: #ccc;
+    padding: 60px 0 20px;
+    user-select: none;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.footer-about {
+    flex: 1 1 280px;
+}
+
+.footer-about img {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-about p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: #bbb;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:last-child {
+    margin-right: 0;
+}
+
+.footer-social a:hover,
+.footer-social a:focus {
+    color: #f0a500;
+    outline: none;
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1 1 200px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links h3::after,
+.footer-contact h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #f0a500;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+.footer-links ul li a:hover,
+.footer-links ul li a:focus {
+    color: #f0a500;
+    outline: none;
+    transform: translateX(5px);
+}
+
+.footer-contact p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #ccc;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-contact i {
+    color: #f0a500;
+    margin-top: 3px;
+    font-size: 1rem;
+}
+
+/* Footer alt kısım */
+.footer-bottom {
+    border-top: 1px solid #222;
+    padding: 20px 0 10px;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Back to top butonu */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #f0a500;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #fff;
+    transform: translateY(-5px);
+}
+
+/* Animasyonlar */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Responsive Tasarım */
+
+/* Büyük Tablet */
+@media (max-width: 991px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-image,
+    .about-text {
+        flex: 1 1 100%;
     }
 
-    .team-cards-section .section-title {
+    .team-members {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
         text-align: center;
-        margin-bottom: 40px;
+    }
+}
+
+/* Küçük Tablet ve Büyük Mobil */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 80px 0;
     }
 
-    .team-cards-section .section-title h2 {
-        font-weight: 900;
+    .page-hero h1 {
         font-size: 2.5rem;
-        margin-bottom: 10px;
-        color: #fff;
     }
 
-    .team-cards-section .section-title p {
-        font-size: 1rem;
-        color: #aaa;
-        max-width: 800px;
-        margin: 0 auto;
+    .page-hero p {
+        font-size: 1.1rem;
     }
 
-    .card-container {
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobil */
+@media (max-width: 600px) {
+    /* Ana navigasyon mobil menü */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 73px;
+        left: 0;
+        padding: 15px 0;
+        border-top: 1px solid #222;
+        z-index: 999;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.show {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
-        padding: 0 20px;
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 12px 15px;
+        border-radius: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Hero yazıları küçülür */
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    /* Başarı kutuları alt alta */
+    .achievements {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .achievement-item {
+        flex: 1 1 100%;
+    }
+
+    /* Ekibimiz 1 sütun */
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+
+    /* Back to top butonu */
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Çok küçük mobil cihazlar */
+@media (max-width: 400px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
     }
 
     .card {
-        background: #111;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 30px 25px;
-        width: 320px; /* Kart genişliği artırıldı */
-        text-align: center;
-        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 280px;
     }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(240, 165, 0, 0.3);
-        background-color: #1a1a1a;
-    }
-
-    .card img {
-        width: 150px; /* 1.5 kat büyütüldü (100px -> 150px) */
-        height: 150px; /* 1.5 kat büyütüldü (100px -> 150px) */
-        border-radius: 50%;
-        object-fit: cover;
-        margin: 0 auto 20px;
-        border: 3px solid #f0a500;
-    }
-
-    .card h3 {
-        margin: 15px 0 8px;
-        font-size: 1.3rem;
-        color: #fff;
-    }
-
-    .card p {
-        font-size: 1rem;
-        color: #ccc;
-        margin-bottom: 0;
-    }
-
-    /* Responsive Tasarım */
-    @media (max-width: 768px) {
-        .card {
-            width: 280px;
-            padding: 25px 20px;
-        }
-        
-        .card img {
-            width: 130px;
-            height: 130px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .card {
-            width: 100%;
-            max-width: 280px;
-        }
-    }
-
-        /* Footer */
-        footer {
-            background-color: #111;
-            color: #ccc;
-            padding: 60px 0 20px;
-            user-select: none;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-
-        .footer-about {
-            flex: 1 1 280px;
-        }
-
-        .footer-about img {
-            width: 150px;
-            margin-bottom: 15px;
-        }
-
-        .footer-about p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #bbb;
-            margin-bottom: 15px;
-        }
-
-        .footer-social {
-            margin-top: 20px;
-        }
-
-        .footer-social a {
-            color: #bbb;
-            margin-right: 15px;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:last-child {
-            margin-right: 0;
-        }
-
-        .footer-social a:hover,
-        .footer-social a:focus {
-            color: #f0a500;
-            outline: none;
-        }
-
-        .footer-links,
-        .footer-contact,
-        .footer-newsletter {
-            flex: 1 1 200px;
-        }
-
-        .footer-links h3,
-        .footer-contact h3,
-        .footer-newsletter h3 {
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-links h3::after,
-        .footer-contact h3::after,
-        .footer-newsletter h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #f0a500;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links ul li a {
-            color: #ccc;
-            transition: color 0.3s ease;
-            display: inline-block;
-            padding: 2px 0;
-        }
-
-        .footer-links ul li a:hover,
-        .footer-links ul li a:focus {
-            color: #f0a500;
-            outline: none;
-            transform: translateX(5px);
-        }
-
-        .footer-contact p {
-            margin-bottom: 15px;
-            font-size: 1rem;
-            color: #ccc;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .footer-contact i {
-            color: #f0a500;
-            margin-top: 3px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            flex-wrap: nowrap;
-            margin-top: 20px;
-        }
-
-        .newsletter-form input[type="email"] {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            outline: none;
-            background-color: #222;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-
-        .newsletter-form input[type="email"]:focus {
-            background-color: #333;
-            box-shadow: 0 0 0 2px #f0a500;
-        }
-
-        .newsletter-form button {
-            background-color: #f0a500;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            color: #000;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .newsletter-form button:hover,
-        .newsletter-form button:focus {
-            background-color: #d18e00;
-            outline: none;
-            transform: translateY(-2px);
-        }
-
-        /* Footer alt kısım */
-        .footer-bottom {
-            border-top: 1px solid #222;
-            padding: 20px 0 10px;
-            font-size: 0.9rem;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .footer-legals {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legals a {
-            color: #666;
-            transition: color 0.3s ease;
-        }
-
-        .footer-legals a:hover,
-        .footer-legals a:focus {
-            color: #f0a500;
-            outline: none;
-        }
-
-        /* Back to top butonu */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #f0a500;
-            color: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background-color: #fff;
-            transform: translateY(-5px);
-        }
-
-        /* Yükleme animasyonu */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #333;
-            border-top-color: #f0a500;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive Tasarım */
-
-        /* Büyük Tablet */
-        @media (max-width: 991px) {
-            .about-content {
-                flex-direction: column;
-            }
-            .about-image,
-            .about-text {
-                flex: 1 1 100%;
-            }
-
-            .team-members {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .footer-legals {
-                justify-content: center;
-            }
-        }
-
-        /* Küçük Tablet ve Büyük Mobil */
-        @media (max-width: 768px) {
-            .page-hero {
-                padding: 80px 0;
-            }
-
-            .page-hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .page-hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Mobil */
-        @media (max-width: 600px) {
-            /* Üst navigasyon alt alta */
-            .top-nav .container {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                padding: 10px 15px;
-            }
-
-            .contact-info span {
-                margin-left: 0;
-                margin-right: 15px;
-            }
-
-            /* Ana navigasyon mobil menü */
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #000;
-                position: absolute;
-                top: 73px;
-                left: 0;
-                padding: 15px 0;
-                border-top: 1px solid #222;
-                z-index: 999;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 0;
-                text-align: center;
-            }
-
-            .nav-links li a {
-                display: block;
-                padding: 12px 15px;
-                border-radius: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            /* Hero yazıları küçülür */
-            .page-hero h1 {
-                font-size: 2rem;
-            }
-
-            .page-hero p {
-                font-size: 1rem;
-                padding: 0 15px;
-            }
-
-            /* Başarı kutuları alt alta */
-            .achievements {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .achievement-item {
-                flex: 1 1 100%;
-            }
-
-            /* Ekibimiz 1 sütun */
-            .team-members {
-                grid-template-columns: 1fr;
-            }
-
-            /* Footer newsletter formu */
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            /* Back to top butonu */
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        /* Çok küçük mobil cihazlar */
-        @media (max-width: 400px) {
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .logo img {
-                height: 35px;
-            }
-
-            .page-hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .card {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
+}
     </style>
 </head>
 <body>
-    
-
-    <!-- Üst Navigasyon -->
-    <div class="top-nav">
-        <div class="container">
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> 0 (212) 123 45 67</span>
-                <span><i class="fas fa-envelope"></i> konparlamento25@gmail.com</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Ana Navigasyon -->
     <header>
         <nav class="main-nav">
@@ -918,17 +706,16 @@
                     <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
                     <span>Konparlamento</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html" class="active">Hakkımızda</a></li>
                     <li><a href="commisions.html">Komisyonlar</a></li>                          
-                    <li><a href="team.html">Ekip</a></li>
                     <li><a href="events.html">Organizasyonlar</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
                     <li><a href="contact.html">İletişim</a></li>
                     <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Menüyü Aç" aria-expanded="false">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -973,13 +760,13 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/about-us.jpg" alt="Konparlamento Ekibi" loading="lazy">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Ekibi" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Ekibimiz -->
+<!--
+     Yönetim Ekibimiz 
     <section class="team-section">
         <div class="container">
             <div class="section-title">
@@ -1026,244 +813,35 @@
             </div>
         </div>
     </section>
+-->
 
     <!-- Ekip Üyeleri Bölümü -->
-<section class="team-cards-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>Ekip Üyeleri</h2>
-            <p>Konparlamento'nun değerli ekip üyeleri</p>
-        </div>
-        <div class="card-container">
-            <!-- Kartlar buraya gelecek -->
-            <div class="card">
-                <img src="image/seyit-ömer-dik.jpg" alt="Seyit Ömer Dik"/>
-                <h3>Seyit Ömer Dik</h3>
-                <p>Genel Koordinatör</p>
+    <section class="team-cards-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ekip Üyeleri</h2>
+                <p>Konparlamento'nun değerli ekip üyeleri</p>
             </div>
-            <div class="card">
-                <img src="image/ahmet-çalış.jpg" alt="Ahmet Çalış"/>
-                <h3>Ahmet Çalış</h3>
-                <p>Organizasyon Başkanı</p>
+            <div class="card-container" id="cardContainer">
+                <!-- Kartlar JavaScript ile yüklenecek -->
             </div>
-            <div class="card">
-                <img src="image/faruk-sevinç.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Faruk Sevinç</h3>
-                <p>Organizasyon Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/abdurrahim-pirinç.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Abdurrahim Pirinç</h3>
-                <p>Organizasyon Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/kerem-taşğın.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Kerem Taşğın</h3>
-                <p>Akademi Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/abdullah-altınpınar.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Abdullah Altınpınar</h3>
-                <p>Akademi Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/mehmet-emin-akıllıoğlu.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Mehmet Emin Akıllıoğlu</h3>
-                <p>Akademi Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/süleyman-bera-uzunlu.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Süleyman Bera Uzunlu</h3>
-                <p>Adalet Komisyonu Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/zehra-korkmaz.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Zehra Korkmaz</h3>
-                <p>Adalet Komisyonu Başkan Vekili</p>
-            </div>
-            <div class="card">
-                <img src="image/eymen-çakar.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Eymen Çakar</h3>
-                <p>Adalet Komisyonu Katip</p>
-            </div>
-            <div class="card">
-                <img src="image/yusuf-yaman.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Yusuf Yaman</h3>
-                <p>Anayasa Komisyon Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/ibrahim-mert-sarraf.jpg" alt="Üye Fotoğrafı"/>
-                <h3>İbrahim Mert Sarraf</h3>
-                <p>Anayasa Komisyonu Başkan Vekili</p>
-            </div>
-            <div class="card">
-                <img src="image/murat-eyüp.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Murat Eyüp</h3>
-                <p>Anayasa Komisyonu Katip</p>
-            </div>
-            <div class="card">
-                <img src="image/muhammed-akkan.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Muhammed Akkan</h3>
-                <p>Dışişleri Komisyonu Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/hikmet-küçükbalcı.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Hikmet Küçükbalcı</h3>
-                <p>Dışişleri Komisyonu Başkan Vekili</p>
-            </div>
-            <div class="card">
-                <img src="image/fevzi-emir-serin.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Fevzi Emir Serin</h3>
-                <p>Dışişleri Komisyonu Katip</p>
-            </div>
-            <div class="card">
-                <img src="image/mehmet-emin-akıllıoğlu-2.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Mehmet Emin Akıllıoğlu</h3>
-                <p>İçişleri Komisyonu Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/hikmet-küçükbalcı-2.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Hikmet Küçükbalcı</h3>
-                <p>İçişleri Komisyonu Başkan Vekili</p>
-            </div> 
-            <div class="card">
-                <img src="image/ahmet-haydar.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Ahmet Haydar</h3>
-                <p>İçişleri Komisyonu Katip</p>
-            </div>
-            <div class="card">
-                <img src="image/elif-berra-izi.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Elif Berra İzi</h3>
-                <p>Milli Savunma Komisyonu Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/esma-deniz-algen.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Esma Deniz Algen</h3>
-                <p>Milli Savunma Komisyonu Başkan Vekili</p>
-            </div>
-            <div class="card">
-                <img src="image/eşref-vatansever.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Eşref Vatansever</h3>
-                <p>Milli Savunma Komisyonu Katip</p>
-            </div>
-
-            <div class="card">
-                <img src="image/can-muhammed-kılınç.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Can Muhammed Kılınç</h3>
-                <p>Meclis Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/yusuf-agah-doğan.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Yusuf Agah Doğan</h3>
-                <p>Sayman</p>
-            </div> 
-            <div class="card">
-                <img src="image/hüseyin-selim-cerrah.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Hüseyin Selim Cerrah</h3>
-                <p>Milli Eğitim Komisyonu Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/zeynep-tuğçe-özer.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Zeynep Tuğçe Özer</h3>
-                <p>Milli Eğitim Komisyonu Başkan Vekili</p>
-            </div>
-            <div class="card">
-                <img src="image/efehan-inci.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Efehan İnci</h3>
-                <p>Milli Eğitim Komisyonu Katip</p>
-            </div>
-            <div class="card">
-                <img src="image/rafet-oğuz-çağ.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Rafet Oğuz Çağ</h3>
-                <p>Lojistik Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/ali-eren-danacı.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Ali Eren Danacı</h3>
-                <p>Lojistik Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/rümeysa-coşkun.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Rümeysa Coşkun</h3>
-                <p>Lojistik Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/enes-nugayoğlu.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Enes Nugayoğlu</h3>
-                <p>Saha Görevlileri Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/abdullah-balcı.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Abdullah Balcı</h3>
-                <p>Saha Görevlileri Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/elif-zümra-pekinceler.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Elif Zümra Pekinceler</h3>
-                <p>Halkla İlişkiler Eş Başkanı</p>
-            </div> 
-            <div class="card">
-                <img src="image/ramazan-çomak.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Ramazan Çomak</h3>
-                <p>Güvenlik Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/furkan-demirel.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Furkan Demirel</h3>
-                <p>Güvenlik Başkan Yardımcısı</p>
-            </div>  
-            <div class="card">
-                <img src="image/elif-berra-ilhan.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Elif Berra İlhan</h3>
-                <p>Basın Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/ecrin-alacadağ.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Ecrin Alacadağ</h3>
-                <p>Basın Başkan Yardımcısı</p>
-            </div>         
-            <div class="card">
-                <img src="image/elif-nida-arduç.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Elif Nisa Arduç</h3>
-                <p>Kriz Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/abdurrahman-talha-çınar.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Abdurrahman Talha Çınar</h3>
-                <p>Kriz Başkan Yardımcısı</p>
-            </div>
-            <div class="card">
-                <img src="image/rüveyda-koçyiğit.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Rüveyda Koçyiğit</h3>
-                <p>Tasarım Başkanı</p>
-            </div>
-            <div class="card">
-                <img src="image/yasemin-bayram.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Yasemin Bayram</h3>
-                <p>Tasarım Başkan Yardımcısı</p>
-            </div> 
-            <div class="card">
-                <img src="image/bekir-nuri-bağcı.jpg" alt="Üye Fotoğrafı"/>
-                <h3>Bekir Nuri Bağcı</h3>
-                <p>Medya Başkanı</p>
-            </div>     
         </div>
     </section>
 
- <!-- Footer (index.html ile aynı) -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
                     <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
-<p> Her Dem Yeniden </p>
+                    <p> Her Dem Yeniden </p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -1272,7 +850,6 @@
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="about.html">Hakkımızda</a></li>
                         <li><a href="commisions.html">Komisyonlar</a></li>
-                        <li><a href="team.html">Ekip</a></li>
                         <li><a href="events.html">Organizasyonlar</a></li>
                         <li><a href="gallery.html">Galeri</a></li>
                         <li><a href="contact.html">İletişim</a></li>
@@ -1285,56 +862,216 @@
                     <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
                     <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
                 </div>
-                
             </div>
         </div>
         <div class="footer-bottom">
             <div class="container">
                 <p class="copyright">
-                    &copy; 2025 Konparlamento. Tüm hakları saklıdır.</p>
-                
+                    &copy; 2025 Konparlamento. Tüm hakları saklıdır.
+                </p>
             </div>
         </div>
     </footer>
-     <script>
-    document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('show');
-    });
-     </script>
-     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-  const icon = menuBtn.querySelector('i');
 
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Başa Dön">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    if (navLinks.classList.contains('show')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-      menuBtn.setAttribute('aria-expanded', 'true');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }
-  });
+    <script>
+        // Ekip üyeleri verisi
+        const teamMembers = [
+            { name: "Seyit Ömer Dik", position: "Genel Koordinatör", image: "image/seyit-ömer-dik.jpg" },
+            { name: "Ahmet Çalış", position: "Organizasyon Başkanı", image: "image/ahmet-çalış.jpg" },
+            { name: "Faruk Sevinç", position: "Organizasyon Başkan Yardımcısı", image: "image/faruk-sevinç.jpg" },
+            { name: "Abdurrahim Pirinç", position: "Organizasyon Başkan Yardımcısı", image: "image/abdurrahim-pirinç.jpg" },
+            { name: "Kerem Taşğın", position: "Akademi Başkanı", image: "image/kerem-taşğın.jpg" },
+            { name: "Abdullah Altınpınar", position: "Akademi Başkan Yardımcısı", image: "image/abdullah-altınpınar.jpg" },
+            { name: "Mehmet Emin Akıllıoğlu", position: "Akademi Başkan Yardımcısı", image: "image/mehmet-emin-akıllıoğlu.jpg" },
+            { name: "Süleyman Bera Uzunlu", position: "Adalet Komisyonu Başkanı", image: "image/süleyman-bera-uzunlu.jpg" },
+            { name: "Zehra Korkmaz", position: "Adalet Komisyonu Başkan Vekili", image: "image/zehra-korkmaz.jpg" },
+            { name: "Eymen Çakar", position: "Adalet Komisyonu Katip", image: "image/eymen-çakar.jpg" },
+            { name: "Yusuf Yaman", position: "Anayasa Komisyon Başkanı", image: "image/yusuf-yaman.jpg" },
+            { name: "İbrahim Mert Sarraf", position: "Anayasa Komisyonu Başkan Vekili", image: "image/ibrahim-mert-sarraf.jpg" },
+            { name: "Murat Eyüp", position: "Anayasa Komisyonu Katip", image: "image/murat-eyüp.jpg" },
+            { name: "Muhammed Akkan", position: "Dışişleri Komisyonu Başkanı", image: "image/muhammed-akkan.jpg" },
+            { name: "Hikmet Küçükbalcı", position: "Dışişleri Komisyonu Başkan Vekili", image: "image/hikmet-küçükbalcı.jpg" },
+            { name: "Fevzi Emir Serin", position: "Dışişleri Komisyonu Katip", image: "image/fevzi-emir-serin.jpg" },
+            { name: "Mehmet Emin Akıllıoğlu", position: "İçişleri Komisyonu Başkanı", image: "image/mehmet-emin-akıllıoğlu-2.jpg" },
+            { name: "Hikmet Küçükbalcı", position: "İçişleri Komisyonu Başkan Vekili", image: "image/hikmet-küçükbalcı-2.jpg" },
+            { name: "Ahmet Haydar", position: "İçişleri Komisyonu Katip", image: "image/ahmet-haydar.jpg" },
+            { name: "Elif Berra İzi", position: "Milli Savunma Komisyonu Başkanı", image: "image/elif-berra-izi.jpg" },
+            { name: "Esma Deniz Algen", position: "Milli Savunma Komisyonu Başkan Vekili", image: "image/esma-deniz-algen.jpg" },
+            { name: "Eşref Vatansever", position: "Milli Savunma Komisyonu Katip", image: "image/eşref-vatansever.jpg" },
+            { name: "Can Muhammed Kılınç", position: "Meclis Başkanı", image: "image/can-muhammed-kılınç.jpg" },
+            { name: "Yusuf Agah Doğan", position: "Sayman", image: "image/yusuf-agah-doğan.jpg" },
+            { name: "Hüseyin Selim Cerrah", position: "Milli Eğitim Komisyonu Başkanı", image: "image/hüseyin-selim-cerrah.jpg" },
+            { name: "Zeynep Tuğçe Özer", position: "Milli Eğitim Komisyonu Başkan Vekili", image: "image/zeynep-tuğçe-özer.jpg" },
+            { name: "Efehan İnci", position: "Milli Eğitim Komisyonu Katip", image: "image/efehan-inci.jpg" },
+            { name: "Rafet Oğuz Çağ", position: "Lojistik Başkanı", image: "image/rafet-oğuz-çağ.jpg" },
+            { name: "Ali Eren Danacı", position: "Lojistik Başkan Yardımcısı", image: "image/ali-eren-danacı.jpg" },
+            { name: "Rümeysa Coşkun", position: "Lojistik Başkan Yardımcısı", image: "image/rümeysa-coşkun.jpg" },
+            { name: "Enes Nugayoğlu", position: "Saha Görevlileri Başkanı", image: "image/enes-nugayoğlu.jpg" },
+            { name: "Abdullah Balcı", position: "Saha Görevlileri Başkan Yardımcısı", image: "image/abdullah-balcı.jpg" },
+            { name: "Elif Zümra Pekinceler", position: "Halkla İlişkiler Eş Başkanı", image: "image/elif-zümra-pekinceler.jpg" },
+            { name: "Ramazan Çomak", position: "Güvenlik Başkanı", image: "image/ramazan-çomak.jpg" },
+            { name: "Furkan Demirel", position: "Güvenlik Başkan Yardımcısı", image: "image/furkan-demirel.jpg" },
+            { name: "Elif Berra İlhan", position: "Basın Başkanı", image: "image/elif-berra-ilhan.jpg" },
+            { name: "Ecrin Alacadağ", position: "Basın Başkan Yardımcısı", image: "image/ecrin-alacadağ.jpg" },
+            { name: "Elif Nisa Arduç", position: "Kriz Başkanı", image: "image/elif-nida-arduç.jpg" },
+            { name: "Abdurrahman Talha Çınar", position: "Kriz Başkan Yardımcısı", image: "image/abdurrahman-talha-çınar.jpg" },
+            { name: "Rüveyda Koçyiğit", position: "Tasarım Başkanı", image: "image/rüveyda-koçyiğit.jpg" },
+            { name: "Yasemin Bayram", position: "Tasarım Başkan Yardımcısı", image: "image/yasemin-bayram.jpg" },
+            { name: "Bekir Nuri Bağcı", position: "Medya Başkanı", image: "image/bekir-nuri-bağcı.jpg" }
+        ];
 
-  // Menü dışına tıklayınca menüyü kapatma (isteğe bağlı)
-  document.addEventListener('click', (e) => {
-    if (!menuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-      if (navLinks.classList.contains('show')) {
-        navLinks.classList.remove('show');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-        menuBtn.setAttribute('aria-expanded', 'false');
-      }
-    }
-  });
-});
+        // DOM yüklendiğinde çalışacak fonksiyonlar
+        document.addEventListener('DOMContentLoaded', function() {
+            initMobileMenu();
+            loadTeamMembers();
+            initBackToTop();
+            initSmoothScrolling();
+        });
 
-     </script>
-    <script src="script.js"></script>
+        // Mobil menü fonksiyonları
+        function initMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            const icon = mobileMenuBtn.querySelector('i');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                
+                if (navLinks.classList.contains('show')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Menü dışına tıklayınca menüyü kapatma
+            document.addEventListener('click', function(e) {
+                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+
+            // Menü linklerine tıklayınca menüyü kapatma
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navLinks.classList.contains('show')) {
+                        navLinks.classList.remove('show');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+
+        // Ekip üyelerini yükleme fonksiyonu
+        function loadTeamMembers() {
+            const cardContainer = document.getElementById('cardContainer');
+            
+            teamMembers.forEach(member => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${member.image}" alt="${member.name}" loading="lazy" onerror="this.src='image/default-avatar.jpg'">
+                    <h3>${member.name}</h3>
+                    <p>${member.position}</p>
+                `;
+                cardContainer.appendChild(card);
+            });
+        }
+
+        // Başa dön butonu fonksiyonları
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Smooth scrolling fonksiyonu
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Sayfa yüklenme animasyonu
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Responsive image handling
+        function handleImageErrors() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.src = 'image/default-avatar.jpg';
+                    this.alt = 'Varsayılan Avatar';
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Animasyon eklenecek elementleri gözlemle
+            document.querySelectorAll('.card, .achievement-item, .team-member').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Sayfa tamamen yüklendiğinde ek fonksiyonları başlat
+        window.addEventListener('load', function() {
+            handleImageErrors();
+            initScrollAnimations();
+        });
+    </script>
 </body>
 </html>
