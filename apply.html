@@ -8,99 +8,283 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="image/konparlamento-logo.png" type="image/png">
     <style>
-
-      
+        /* Genel Stiller */
+        :root {
+            --primary-color: #a70000;
+            --primary-hover: #ff0000;
+            --secondary-color: #f8f8f8;
+            --text-color: #333;
+            --light-text: #777;
+            --transition: all 0.3s ease;
+        }
+        
+        /* Hero Bölümü Geliştirmeleri */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%), 
+                        url('image/apply-hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.3s;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Buton Stilleri */
         .btn-link {
-  text-decoration: none; /* Link alt çizgisini kaldırır */
-}
-
-.btn-form {
-  background-color: #a70000; /* Yeşil arka plan */
-  color: rgb(255, 255, 255); /* Beyaz metin */
-  padding: 12px 24px; /* İç boşluk */
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px; /* Yuvarlatılmış köşeler */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.btn-form:hover {
-  background-color: #ff0000; /* Hoverda koyu yeşil */
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
-}
-
-.btn-form:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(72, 180, 97, 0.6);
-}
-
-/* Responsive */
-
-/* Tablet */
-@media (max-width: 991px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 30px;
-  }
-}
-
-
-  /* Üst navigasyon alt alta */
-  .top-nav .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .contact-info span {
-    margin-left: 0;
-  }
-
-  /* Ana navigasyon mobil menü */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #000;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    padding: 15px 0;
-    border-top: 1px solid #222;
-    z-index: 999;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  /* Butonlar tam genişlik */
-  .btn {
-    display: block;
-    width: 90%;
-    margin: 10px auto 0;
-    text-align: center;
-  }
-
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-form {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(167, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-form:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        .btn-form:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-form::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn-form:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        /* Form Bilgilendirme Bölümü */
+        .form-info {
+            padding: 80px 20px;
+            background-color: var(--secondary-color);
+        }
+        
+        .form-info-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .info-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        
+        .info-card p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Geri Sayım Bölümü */
+        .countdown {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .countdown-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .countdown h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Animasyonlar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive Tasarım */
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-form {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+        }
     </style>
-
 </head>
 
 <body>
@@ -133,17 +317,64 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Konparlamento Başvuru Formu</h1>
-                <p>Organizasyonumuza katılmak için aşağıdaki formu eksiksiz doldurunuz.</p>
+                <p>Organizasyonumuza katılmak için aşağıdaki butona tıklayarak formu eksiksiz doldurunuz. Başvurularınızı bekliyoruz!</p>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeng3UTCFhL0TL3-6PHT4zAPb7hn6bL9b6JFZI50RYREpQEBw/viewform" 
-                class="btn-form">Form'a Git</a>
-
-
-
+                class="btn-form pulse">
+                    <i class="fas fa-paper-plane"></i> Form'a Git
+                </a>
             </div>
         </div>
     </section>
-
     
+    <!-- Form Bilgilendirme Bölümü -->
+    <section class="form-info">
+        <div class="form-info-container">
+            <div class="info-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Kolay Başvuru Süreci</h3>
+                <p>Formumuz sadece birkaç dakikanızı alacak şekilde tasarlanmıştır. Temel bilgilerinizi girerek başvurunuzu tamamlayabilirsiniz.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Hızlı Yanıt</h3>
+                <p>Başvurunuzu gönderdikten sonra en kısa sürede değerlendirilecek ve size geri dönüş yapılacaktır.</p>
+            </div>
+            
+            <div class="info-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>Yardıma İhtiyacınız Var mı?</h3>
+                <p>Başvuru sürecinde herhangi bir sorun yaşarsanız, iletişim sayfamızdan bize ulaşabilirsiniz.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Geri Sayım Bölümü -->
+    <section class="countdown">
+        <div class="countdown-container">
+            <h2>Son Başvuru Tarihi</h2>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Gün</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Saat</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Dakika</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Saniye</div>
+                </div>
+            </div>
+            <p>Başvurular kapanmadan önce formu doldurmayı unutmayın!</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -186,11 +417,55 @@
             </div>
         </div>
     </footer>
+    
     <script>
-    document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('show');
-    });
+        // Mobil Menü Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+        
+        // Geri Sayım Timer
+        function updateCountdown() {
+            // Son başvuru tarihini ayarlayın (YYYY, MM-1, DD, HH, MM, SS)
+            const countdownDate = new Date(2025, 6, 31, 23, 59, 59).getTime();
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            // Zaman hesaplamaları
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Sonuçları göster
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            // Süre dolduysa
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = '<div class="countdown-ended">Başvurular kapandı!</div>';
+            }
+        }
+        
+        // Her saniye geri sayımı güncelle
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown(); // İlk çağrı
+        
+        // Buton ripple efekti
+        document.querySelector('.btn-form').addEventListener('click', function(e) {
+            // Ripple efekti JavaScript'te de çalışacak şekilde ayarlandı
+            // CSS'teki animasyon yeterli olduğu için burada ek bir kod yok
+            // Ancak başka bir etkileşim eklemek isterseniz buraya yazabilirsiniz
+        });
+        
+        // Sayfa yüklendiğinde animasyonları tetikle
+        window.addEventListener('load', function() {
+            document.querySelector('.hero-content').style.opacity = '1';
+            document.querySelector('.hero-content').style.transform = 'translateY(0)';
+        });
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
