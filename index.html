@@ -816,17 +816,17 @@
         // Geri sayım fonksiyonu
         function initCountdown() {
             // Hedef tarihi ayarla (30 gün sonra)
-            const targetDate = new Date("2025-07-01T10:00:00");
-            targetDate.setDate(targetDate.getDate(2025 , 07 , 01) + 0);
+            const targetDate = new Date("2025-07-01T23:59:59");
+            targetDate.setDate(targetDate.getDate() + 0);
             
             const weeksEl = document.getElementById('weeks');
             const daysEl = document.getElementById('days');
             const hoursEl = document.getElementById('hours');
             const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
+            const secondsEl = document.getElementById('seconds');         
 
             function updateCountdown() {
-                const now = new Date().getTime();
+                const now = new Date(2025, 07, 01).getTime();
                 const distance = targetDate.getTime() - now;
 
                 if (distance > 0) {
