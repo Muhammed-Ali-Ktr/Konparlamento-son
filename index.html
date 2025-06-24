@@ -815,57 +815,55 @@
 
         // Geri sayım fonksiyonu
         function initCountdown() {
-            // Hedef tarihi ayarla (30 gün sonra)
-            const targetDate = new Date("2025-07-01T23:59:59");
-            targetDate.setDate(targetDate.getDate() + 0);
-            
-            const weeksEl = document.getElementById('weeks');
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');         
+            // Hedef tarihi ayarla (2025-07-01 23:59:59)
+const targetDate = new Date("2025-07-01T23:59:59");
 
-            function updateCountdown() {
-                const now = new Date(2025, 07, 01).getTime();
-                const distance = targetDate.getTime() - now;
+const weeksEl = document.getElementById('weeks');
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
 
-                if (distance > 0) {
-                    const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
-                    const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+function updateCountdown() {
+    const now = new Date().getTime();  // Şu anki zaman
+    const distance = targetDate.getTime() - now;
 
-                    // Sayıları güncelle
-                    weeksEl.textContent = weeks.toString().padStart(2, '0');
-                    daysEl.textContent = days.toString().padStart(2, '0');
-                    hoursEl.textContent = hours.toString().padStart(2, '0');
-                    minutesEl.textContent = minutes.toString().padStart(2, '0');
-                    secondsEl.textContent = seconds.toString().padStart(2, '0');
+    if (distance > 0) {
+        const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                    // Animasyon efekti
-                    [weeksEl, daysEl, hoursEl, minutesEl, secondsEl].forEach(el => {
-                        el.style.transform = 'scale(1.1)';
-                        setTimeout(() => {
-                            el.style.transform = 'scale(1)';
-                        }, 100);
-                    });
-                } else {
-                    // Süre dolduğunda
-                    [weeksEl, daysEl, hoursEl, minutesEl, secondsEl].forEach(el => {
-                        el.textContent = '00';
-                    });
-                    document.querySelector('.countdown-title').textContent = 'Etkinlik Başladı!';
-                    clearInterval(countdownInterval);
-                }
-            }
+        // Sayıları güncelle
+        weeksEl.textContent = weeks.toString().padStart(2, '0');
+        daysEl.textContent = days.toString().padStart(2, '0');
+        hoursEl.textContent = hours.toString().padStart(2, '0');
+        minutesEl.textContent = minutes.toString().padStart(2, '0');
+        secondsEl.textContent = seconds.toString().padStart(2, '0');
 
-            // İlk güncelleme
-            updateCountdown();
-            
-            // Her saniye güncelle
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        }
+        // Animasyon efekti
+        [weeksEl, daysEl, hoursEl, minutesEl, secondsEl].forEach(el => {
+            el.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                el.style.transform = 'scale(1)';
+            }, 100);
+        });
+    } else {
+        // Süre dolduğunda
+        [weeksEl, daysEl, hoursEl, minutesEl, secondsEl].forEach(el => {
+            el.textContent = '00';
+        });
+        document.querySelector('.countdown-title').textContent = 'Etkinlik Başladı!';
+        clearInterval(countdownInterval);
+    }
+}
+
+// İlk güncelleme
+updateCountdown();
+
+// Her saniye güncelle
+const countdownInterval = setInterval(updateCountdown, 1000);
 
         // Scroll animasyonları
         function initScrollAnimations() {
