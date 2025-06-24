@@ -294,9 +294,9 @@ document.head.appendChild(lightboxStyle);
 
 // Örnek organizasyon verileri
 const organizasyonlar = [
-  { id: 1, isim: "Çevre Temizliği Kampanyası", tarih: "2025-06-20T10:00:00" },
+  { id: 1, isim: "Çevre Temizliği Kampanyası", tarih: "2025-07-20T10:00:00" },
   { id: 2, isim: "Kültür Festivali", tarih: "2025-07-05T18:00:00" },
-  { id: 3, isim: "Eğitim Semineri", tarih: "2025-08-15T14:00:00" }
+  { id: 3, isim: "Eğitim Semineri", tarih: "2025-07-15T14:00:00" }
 ];
 
 
