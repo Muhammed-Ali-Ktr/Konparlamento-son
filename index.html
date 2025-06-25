@@ -9,6 +9,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="image/konparlamento-logo.png" type="image/png"> 
     <style>
+        .countdown-section {
+  background: url('your-image.jpg') no-repeat center center/cover;
+  position: relative;
+  padding: 6rem 2rem; /* Arka plan ve iç boşluk */
+  margin: 3rem 0;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  filter: grayscale(100%);
+  z-index: 0;
+  border-radius: 20px;
+}
+
+.countdown-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.countdown-title {
+  font-size: 5rem; /* Başlık büyüklüğü */
+  font-weight: 700;
+  margin-bottom: 4rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+.countdown-container {
+  display: flex;
+  flex-direction: column; /* Dikey */
+  align-items: center;
+  gap: 3rem; /* Kutular arası boşluk */
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  border-radius: 15px;
+  padding: 3rem 5rem; /* Kutunun iç boşluğu */
+  min-width: 240px; /* Kutunun genişliği */
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px #fff;
+}
+
+.countdown-number {
+  font-size: 6rem !important;; /* Sayıların büyüklüğü */
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.countdown-label {
+  font-size: 2.2rem; /* Etiketlerin büyüklüğü */
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ddd;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Masaüstü için orijinal boyutlar */
+@media (min-width: 768px) {
+  .countdown-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  
+  .countdown-item {
+    min-width: 140px;
+    padding: 2rem 3rem;
+  }
+  
+  .countdown-number {
+    font-size: 3.5rem;
+  }
+  
+  .countdown-label {
+    font-size: 1.2rem;
+  }
+}
+    </style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -24,10 +121,86 @@
 
         /* Container */
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
+
+        /* Ana Navigasyon */
+header {
+    background-color: #000;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Bu değeri artırıyoruz */
+    width: 100%; /* Genişliği tam yapıyoruz */
+}
+
+.main-nav .container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    flex-wrap: wrap;
+    position: relative; /* Container'a relative pozisyon ekliyoruz */
+}
+
+/* Mobil Menü Butonu */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    background: none;
+    border: none;
+    padding: 5px;
+    z-index: 1001; /* Butonun üstte kalmasını sağlıyoruz */
+}
+
+/* Mobil menü için düzenlemeler */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        z-index: 999; /* Menünün diğer içeriklerin üstünde olmasını sağlıyoruz */
+        width: 100%; /* Genişliği tam yapıyoruz */
+        box-sizing: border-box; /* Padding'i genişliğe dahil ediyoruz */
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Logo boyutunu küçültüyoruz */
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+}
+
+/* Hero section için mobil ayarları */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 70px; /* Header'ın altına kaymaması için padding ekliyoruz */
+    }
+}
 
         /* Hero Section */
         .hero {
@@ -123,81 +296,7 @@
             transform: translateY(-2px);
         }
 
-        /* Countdown Section */
-        .countdown-section {
-            background: url(image/desen.png) repeat;
-            padding: 4rem 0;
-            margin: 4rem 0;
-            position: relative;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1s ease-out 0.9s both;
-        }
-
-        .countdown-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-        }
-
-        .countdown-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .countdown-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-
-        .countdown-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: linear-gradient(135deg, rgb(128, 128, 128), rgba(117, 117, 117, 0.2));
-            border: 2px solid #FFD700;
-            border-radius: 15px;
-            padding: 2rem 1.5rem;
-            min-width: 120px;
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .countdown-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .countdown-number {
-            display: block;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            margin-bottom: 0.5rem;
-        }
-
-        .countdown-label {
-            font-size: 1rem;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
+        
 
         /* Animations */
         @keyframes fadeInUp {
@@ -302,65 +401,79 @@
             will-change: transform;
         }
 
-        /* S.S.S. Bölümü açılır kapanır cevap */ 
-  .faq-section {
-    background-color: #f9f9f9;
-    padding: 40px 20px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+        /* S.S.S. Bölümü */
+        .faq-section {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-  .faq-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
 
-  .faq-item {
-    margin-bottom: 20px;
-  }
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-  .faq-question {
-    background: none;
-    border: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    text-align: left;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
-  }
+        .faq-question {
+            background: #fff;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+            padding: 15px;
+            transition: background-color 0.3s ease;
+            color: #000;
+        }
 
-  .faq-question:hover,
-  .faq-question:focus {
-    background-color: #e0e0e0;
-    outline: none;
-  }
+        .faq-question:hover,
+        .faq-question:focus {
+            background-color: #f0f0f0;
+            outline: none;
+        }
 
-  .faq-icon {
-    background-color: #000;
-    color: #fff;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    user-select: none;
-  }
+        .faq-icon {
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            user-select: none;
+            flex-shrink: 0;
+        }
 
-  .faq-answer {
-    padding: 10px 15px 10px 39px;
-    font-weight: 500;
-    color: #333;
-    line-height: 1.4;
-  }
+        .faq-answer {
+            padding: 0 15px;
+            font-weight: 500;
+            color: #333;
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.show {
+            padding: 15px;
+            max-height: 500px;
+        }
 
 /* Mobil */
 @media (max-width: 600px) {
@@ -375,32 +488,7 @@
     margin-left: 0;
   }
 
-  /* Ana navigasyon mobil menü */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #000;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    padding: 15px 0;
-    border-top: 1px solid #222;
-    z-index: 999;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 10px 0;
-    text-align: center;
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
+  
 
   /* Butonlar tam genişlik */
   .btn {
@@ -455,6 +543,362 @@
 .sponsor-logos img:hover {
   filter: grayscale(0%);
 }
+
+/* Footer */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            padding: 60px 0 20px;
+            user-select: none;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-about {
+            flex: 1 1 280px;
+        }
+
+        .footer-about img {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #bbb;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:last-child {
+            margin-right: 0;
+        }
+
+        .footer-social a:hover,
+        .footer-social a:focus {
+            color: #f0a500;
+            outline: none;
+        }
+
+        .footer-links,
+        .footer-contact {
+            flex: 1 1 200px;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #f0a500;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .footer-links ul li a:hover,
+        .footer-links ul li a:focus {
+            color: #f0a500;
+            outline: none;
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: #f0a500;
+            margin-top: 3px;
+            font-size: 1rem;
+        }
+
+        /* Footer alt kısım */
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding: 20px 0 10px;
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Back to top butonu */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #f0a500;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: none;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #fff;
+            transform: translateY(-5px);
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Responsive Tasarım */
+
+        /* Büyük Tablet */
+        @media (max-width: 991px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 1rem 0.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+        }
+
+        /* Küçük Tablet ve Büyük Mobil */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .countdown-title {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 0.8rem 0.3rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            .mv-box {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobil */
+        @media (max-width: 600px) {
+            /* Ana navigasyon mobil menü */
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #000;
+                position: absolute;
+                top: 73px;
+                left: 0;
+                padding: 15px 0;
+                border-top: 1px solid #222;
+                z-index: 999;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 15px;
+                border-radius: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-container {
+                gap: 0.5rem;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.5rem 0.2rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+            
+            .sponsor-logos {
+                gap: 20px;
+                padding: 10px 0;
+            }
+            
+            .sponsor-logos img {
+                max-height: 40px;
+            }
+            
+            .footer-about,
+            .footer-links,
+            .footer-contact {
+                flex: 1 1 100%;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+            
+            /* Back to top butonu */
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Çok küçük mobil cihazlar */
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+            
+            .countdown-item {
+                min-width: 50px;
+            }
+            
+            .countdown-number {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -464,12 +908,10 @@
         <nav class="main-nav">
             <div class="container">
                 <a href="index.html" class="logo">
-                    
-                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" style="background: none;">
-                    
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
                     <span>Konparlamento</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="about.html">Hakkımızda</a></li>
                     <li><a href="commisions.html">Komisyonlar</a></li>
@@ -478,9 +920,9 @@
                     <li><a href="contact.html">İletişim</a></li>
                     <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
                 </ul>
-                <div class="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü aç/kapat">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -488,9 +930,9 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-background">
-            <div class="hero-slide active" style="background-image: url(image/meclis-background.png)"></div>
-            <div class="hero-slide" style="background-image: url(image/meclis-1.png)"></div>
-            <div class="hero-slide" style="background-image: url(image/tbmm-kürsü.png)"></div>
+            <div class="hero-slide active" style="background-image: url('image/meclis-background.png')" aria-hidden="false"></div>
+            <div class="hero-slide" style="background-image: url('image/meclis-1.png')" aria-hidden="true"></div>
+            <div class="hero-slide" style="background-image: url('image/tbmm-kürsü.png')" aria-hidden="true"></div>
         </div>
         
         <div class="container">
@@ -508,7 +950,7 @@
 
     <!-- Countdown Section -->
     <section class="countdown-section">
-        <div class="container" style="background-image: url(image/desen.png);">
+        <div class="container">
             <div class="countdown-content">
                 <h2 class="countdown-title">Organizasyona Kalan Süre</h2>
                 <div class="countdown-container">
@@ -542,110 +984,103 @@
         <div class="container">
             <h2>Sponsorlarımız</h2>
             <div class="sponsor-logos">
-                <img src="images/sponsors/sponsor1.png" alt="Sponsor 1">
-                <img src="images/sponsors/sponsor2.png" alt="Sponsor 2">
-                <img src="images/sponsors/sponsor3.png" alt="Sponsor 3">
-                <img src="images/sponsors/sponsor4.png" alt="Sponsor 4">
+                <img src="image/konyabel-logo.png" alt="Sponsor 1" loading="lazy">
+                <img src="image/tbmm-logo.png" alt="Sponsor 2" loading="lazy">
+                <img src="images/sponsors/sponsor3.png" alt="Sponsor 3" loading="lazy">
+                <img src="images/sponsors/sponsor4.png" alt="Sponsor 4" loading="lazy">
             </div>
         </div>
     </section>
-<center>
+
     <!-- Misyon & Vizyon -->
     <section class="mission-vision">
         <div class="container">
             <div class="mv-boxes">
                 <div class="mv-box">
-                    <i class="fas fa-bullseye"></i>
+                    <i class="fas fa-bullseye" aria-hidden="true"></i>
                     
-                    
-                    <div class="image-toggle-container" onclick="toggleImages(this)">
-                        <img src="image/misyonumuz.jpg" alt="Misyonumuz" class="toggle-image active" />
-                        <img src="image/misyon-metin.jpg" alt="Misyon" class="toggle-image" />
-                    
+                    <div class="image-toggle-container" onclick="toggleImages(this)" role="button" tabindex="0" aria-label="Misyon bilgisini göster/gizle">
+                        <img src="image/misyonumuz.jpg" alt="Misyonumuz" class="toggle-image active" loading="lazy" />
+                        <img src="image/misyon-metin.jpg" alt="Misyon metni" class="toggle-image" loading="lazy" />
                     </div>
                     
                 </div>
                 <div class="mv-box">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-eye" aria-hidden="true"></i>
                                       
-                    <div class="image-toggle-container" onclick="toggleImages(this)">
-                        <img src="image/vizyonumuz.jpg" alt="Vizyonumuz" class="toggle-image active" />
-                        <img src="image/vizyon-metin.jpg" alt="Vizyon" class="toggle-image" />
-                  
-                </div>
-                    <b></b>
+                    <div class="image-toggle-container" onclick="toggleImages(this)" role="button" tabindex="0" aria-label="Vizyon bilgisini göster/gizle">
+                        <img src="image/vizyonumuz.jpg" alt="Vizyonumuz" class="toggle-image active" loading="lazy" />
+                        <img src="image/vizyon-metin.jpg" alt="Vizyon metni" class="toggle-image" loading="lazy" />
+                    </div>
                 </div>
                 <div class="mv-box">
-                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart" aria-hidden="true"></i>
                     
-                  
-                    <div class="image-toggle-container" onclick="toggleImages(this)">
-                        <img src="image/konparlamento-yazı.png" alt="Parlamento" class="toggle-image active" />
-                        <img src="image/parlamento.jpg" alt="Parlamento" class="toggle-image" />
-                                  
+                    <div class="image-toggle-container" onclick="toggleImages(this)" role="button" tabindex="0" aria-label="Parlamento bilgisini göster/gizle">
+                        <img src="image/konparlamento-yazı.png" alt="Konparlamento logosu" class="toggle-image active" loading="lazy" />
+                        <img src="image/parlamento.jpg" alt="Parlamento bilgisi" class="toggle-image" loading="lazy" />
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-</center>
-
 
     <!-- SSS Bölümü -->
     <section class="faq-section">
-  <div class="container">
-    <h2>Sıkça Sorulan Sorular</h2>
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="answer1" id="question1">
-        <span class="faq-icon">?</span> Nasıl başvuru yapabilirim?
-      </button>
-      <div id="answer1" class="faq-answer" role="region" aria-labelledby="question1" hidden>
-        Başvuru sayfamızdan online olarak başvurunuzu yapabilir veya doğrudan ofisimize gelerek başvuru formunu doldurabilirsiniz.
-      </div>
-    </div>
+        <div class="container">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="answer1" id="question1">
+                    <span class="faq-icon">?</span> Nasıl başvuru yapabilirim?
+                </button>
+                <div id="answer1" class="faq-answer" role="region" aria-labelledby="question1">
+                    Başvuru sayfamızdan online olarak başvurunuzu yapabilir veya doğrudan ofisimize gelerek başvuru formunu doldurabilirsiniz.
+                </div>
+            </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="answer2" id="question2">
-        <span class="faq-icon">?</span> Etkinliklere nasıl katılabilirim?
-      </button>
-      <div id="answer2" class="faq-answer" role="region" aria-labelledby="question2" hidden>
-        Etkinliklerimiz sayfasından yaklaşan etkinlikleri görüntüleyebilir ve kayıt olabilirsiniz. Bazı etkinlikler ücretsizdir.
-      </div>
-    </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="answer2" id="question2">
+                    <span class="faq-icon">?</span> Etkinliklere nasıl katılabilirim?
+                </button>
+                <div id="answer2" class="faq-answer" role="region" aria-labelledby="question2">
+                    Etkinliklerimiz sayfasından yaklaşan etkinlikleri görüntüleyebilir ve kayıt olabilirsiniz. Bazı etkinlikler ücretsizdir.
+                </div>
+            </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="answer3" id="question3">
-        <span class="faq-icon">?</span> Gönüllü olarak nasıl katkıda bulunabilirim?
-      </button>
-      <div id="answer3" class="faq-answer" role="region" aria-labelledby="question3" hidden>
-        Gönüllü başvuru formunu doldurarak bizimle iletişime geçebilirsiniz. Farklı alanlarda gönüllülük imkanları sunuyoruz.
-      </div>
-    </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="answer3" id="question3">
+                    <span class="faq-icon">?</span> Gönüllü olarak nasıl katkıda bulunabilirim?
+                </button>
+                <div id="answer3" class="faq-answer" role="region" aria-labelledby="question3">
+                    Gönüllü başvuru formunu doldurarak bizimle iletişime geçebilirsiniz. Farklı alanlarda gönüllülük imkanları sunuyoruz.
+                </div>
+            </div>
 
-    <div class="faq-item">
-      <button class="faq-question" aria-expanded="false" aria-controls="answer4" id="question4">
-        <span class="faq-icon">?</span> Bağış yapma süreçleri nasıl işliyor?
-      </button>
-      <div id="answer4" class="faq-answer" role="region" aria-labelledby="question4" hidden>
-        Bağış yapmak için bizimle iletişime geçebilir veya web sitemizden online bağış yapabilirsiniz. Tüm bağışlar yasal çerçevede işlenmektedir.
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false" aria-controls="answer4" id="question4">
+                    <span class="faq-icon">?</span> Bağış yapma süreçleri nasıl işliyor?
+                </button>
+                <div id="answer4" class="faq-answer" role="region" aria-labelledby="question4">
+                    Bağış yapmak için bizimle iletişime geçebilir veya web sitemizden online bağış yapabilirsiniz. Tüm bağışlar yasal çerçevede işlenmektedir.
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo">
+                    <img src="image/konparlamento-logo.png" alt="Konparlamento Logo" loading="lazy">
                     <p>Toplumsal gelişime katkıda bulunmak, gençlerin potansiyelini ortaya çıkarmak ve sürdürülebilir projeler geliştirmek amacıyla kurulmuş bir sivil toplum kuruluşudur.</p>
                     <p> Her Dem Yeniden </p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/konparlamento?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/konparlamento?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -674,251 +1109,264 @@
             </div>
         </div>
     </footer>
-<script>        
-// Mobil menü fonksiyonları
-        function initMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const icon = mobileMenuBtn.querySelector('i');
 
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('show');
+    <a href="#" class="back-to-top" aria-label="Sayfanın başına dön"><i class="fas fa-arrow-up"></i></a>
 
-                if (navLinks.classList.contains('show')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Menü dışına tıklayınca menüyü kapatma
-            document.addEventListener('click', function(e) {
-                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-
-            // Menü linklerine tıklayınca menüyü kapatma
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-        }
-</script>
-<script>
-  const targetDate = new Date("2025-07-01T23:59:59");
-
-  const weeksEl = document.getElementById('weeks');
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
-
-  function updateCountdown() {
-    const now = new Date();
-    const totalSeconds = Math.floor((targetDate - now) / 1000);
-
-    if (totalSeconds <= 0) {
-      weeksEl.textContent = "00";
-      daysEl.textContent = "00";
-      hoursEl.textContent = "00";
-      minutesEl.textContent = "00";
-      secondsEl.textContent = "00";
-      return;
+   <script>
+        // Ana JavaScript sınıfı
+class KonparlamentoApp {
+    constructor() {
+        this.targetDate = new Date("2025-07-01T23:59:59");
+        this.countdownInterval = null;
+        this.slideInterval = null;
+        this.currentSlide = 0;
+        
+        this.init();
     }
 
-    const weeks = Math.floor(totalSeconds / (7 * 24 * 60 * 60));
-    const days = Math.floor((totalSeconds % (7 * 24 * 60 * 60)) / (24 * 60 * 60));
-    const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
-    const seconds = totalSeconds % 60;
-
-    weeksEl.textContent = String(weeks).padStart(2, '0');
-    daysEl.textContent = String(days).padStart(2, '0');
-    hoursEl.textContent = String(hours).padStart(2, '0');
-    minutesEl.textContent = String(minutes).padStart(2, '0');
-    secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-
-  updateCountdown(); // Sayfa yüklenince bir kez çalışsın
-  setInterval(updateCountdown, 1000); // Her saniye güncelle
-</script>
-
-    <script>
-        // DOM yüklendiğinde çalışacak fonksiyonlar
-        document.addEventListener('DOMContentLoaded', function() {
-            initMobileMenu();
-            initCountdown();
-            initHeroSlideshow();
-            initScrollAnimations();
-        });
-
-        // Mobil menü fonksiyonları
-        function initMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const icon = mobileMenuBtn.querySelector('i');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('show');
-                
-                if (navLinks.classList.contains('show')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-
-            // Menü dışına tıklayınca kapat
-            document.addEventListener('click', function(e) {
-                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-                    navLinks.classList.remove('show');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        }
-
-        // Hero slideshow
-        function initHeroSlideshow() {
-            const slides = document.querySelectorAll('.hero-slide');
-            let currentSlide = 0;
-
-            function nextSlide() {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }
-
-            // Her 5 saniyede bir slide değiştir
-            setInterval(nextSlide, 5000);
-        }
-
-        
-// İlk güncelleme
-updateCountdown();
-
-// Her saniye güncelle
-const countdownInterval = setInterval(updateCountdown, 1000);
-
-        // Scroll animasyonları
-        function initScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                    }
-                });
-            }, observerOptions);
-
-            // Animasyon eklenecek elementleri gözlemle
-            document.querySelectorAll('.countdown-item').forEach(el => {
-                observer.observe(el);
-            });
-        }
-
-        // Performance optimizations
-        let ticking = false;
-        
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateElements);
-                ticking = true;
-            }
-        }
-
-        function updateElements() {
-            // Scroll ile ilgili güncellemeler
-            ticking = false;
-        }
-
-        // Smooth scroll için
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Klavye erişilebilirliği
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const navLinks = document.getElementById('navLinks');
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-                const icon = mobileMenuBtn.querySelector('i');
-                
-                if (navLinks.classList.contains('show')) {
-                    navLinks.classList.remove('show');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            }
-        });
-
-        // Resize event için debounce
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                // Resize işlemleri
-            }, 250);
-        });
-    </script>
-
-    <script>
-//S.S.S. Bölümü açılır kapanır cevap 
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      button.setAttribute('aria-expanded', !expanded);
-      const answerId = button.getAttribute('aria-controls');
-      const answer = document.getElementById(answerId);
-      if (answer) {
-        if (expanded) {
-          answer.hidden = true;
+    init() {
+        // DOM yüklendikten sonra başlat
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.initializeComponents());
         } else {
-          answer.hidden = false;
+            this.initializeComponents();
         }
-      }
+    }
+
+    initializeComponents() {
+        this.initMobileMenu();
+        this.initCountdown();
+        this.initHeroSlideshow();
+        this.initFAQ();
+        this.initImageToggle();
+        this.initScrollAnimations();
+        this.initSponsorScroll();
+        this.initBackToTop();
+    }
+
+    // Mobil menü işlevselliği
+initMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const header = document.querySelector('header');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        const isExpanded = navLinks.classList.contains('show');
+        mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+        mobileMenuBtn.innerHTML = isExpanded 
+            ? '<i class="fas fa-times"></i>' 
+            : '<i class="fas fa-bars"></i>';
+        
+        // Menü açıkken body'e scroll'u engelle
+        if (isExpanded) {
+            document.body.style.overflow = 'hidden';
+            header.style.position = 'fixed'; // Header'ı sabitliyoruz
+            header.style.width = '100%';
+        } else {
+            document.body.style.overflow = '';
+            header.style.position = 'sticky';
+        }
     });
-  });
-    </script>
 
-    <script>
-      function toggleImages(container) {
-  const images = container.querySelectorAll('.toggle-image');
-  if (images.length === 2) {
-    images.forEach(img => img.classList.toggle('active'));
-  }
+    // Mobil menüde bir öğeye tıklandığında menüyü kapat
+    document.querySelectorAll('#navLinks a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = '';
+            header.style.position = 'sticky';
+        });
+    });
 }
-    </script>
 
+    // Geri sayım işlevselliği
+    initCountdown() {
+        this.updateCountdown(); // Hemen güncelle
+        this.countdownInterval = setInterval(() => this.updateCountdown(), 1000);
+    }
+
+    updateCountdown() {
+        const now = new Date().getTime();
+        const distance = this.targetDate - now;
+
+        if (distance < 0) {
+            clearInterval(this.countdownInterval);
+            document.getElementById('weeks').textContent = '00';
+            document.getElementById('days').textContent = '00';
+            document.getElementById('hours').textContent = '00';
+            document.getElementById('minutes').textContent = '00';
+            document.getElementById('seconds').textContent = '00';
+            return;
+        }
+
+        // Hesaplamalar
+        const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // DOM güncelleme
+        document.getElementById('weeks').textContent = this.formatTime(weeks);
+        document.getElementById('days').textContent = this.formatTime(days);
+        document.getElementById('hours').textContent = this.formatTime(hours);
+        document.getElementById('minutes').textContent = this.formatTime(minutes);
+        document.getElementById('seconds').textContent = this.formatTime(seconds);
+    }
+
+    formatTime(time) {
+        return time < 10 ? `0${time}` : time;
+    }
+
+    // Hero slayt gösterisi
+    initHeroSlideshow() {
+        const slides = document.querySelectorAll('.hero-slide');
+        if (slides.length === 0) return;
+
+        // Başlangıçta ilk slayt aktif
+        slides[0].classList.add('active');
+        slides[0].setAttribute('aria-hidden', 'false');
+
+        // Slaytları döngüye al
+        this.slideInterval = setInterval(() => {
+            this.currentSlide = (this.currentSlide + 1) % slides.length;
+            this.changeSlide(this.currentSlide);
+        }, 5000);
+    }
+
+    changeSlide(index) {
+        const slides = document.querySelectorAll('.hero-slide');
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            slide.setAttribute('aria-hidden', 'true');
+        });
+        
+        slides[index].classList.add('active');
+        slides[index].setAttribute('aria-hidden', 'false');
+    }
+
+    // SSS işlevselliği
+    initFAQ() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isExpanded = question.getAttribute('aria-expanded') === 'true';
+                
+                // Tüm cevapları kapat
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('show');
+                });
+                
+                // Tüm soruların durumunu güncelle
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.setAttribute('aria-expanded', 'false');
+                });
+                
+                // Tıklanan soruyu aç/kapat
+                if (!isExpanded) {
+                    answer.classList.add('show');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            // Klavye erişilebilirliği
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
+            });
+        });
+    }
+
+    // Resim değiştirme işlevselliği
+    initImageToggle() {
+        // Bu fonksiyon artık gerekli değil çünkü toggleImages fonksiyonu doğrudan HTML'de çağrılıyor
+    }
+
+    // Kaydırma animasyonları
+    initScrollAnimations() {
+        const animateElements = document.querySelectorAll('.mv-box, .countdown-item, .faq-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(el => observer.observe(el));
+    }
+
+    // Sponsor kaydırma efekti
+    initSponsorScroll() {
+        const sponsorContainer = document.querySelector('.sponsor-logos');
+        if (!sponsorContainer) return;
+
+        let scrollAmount = 0;
+        const scrollSpeed = 1;
+        
+        function scrollSponsors() {
+            scrollAmount += scrollSpeed;
+            if (scrollAmount >= sponsorContainer.scrollWidth / 2) {
+                scrollAmount = 0;
+            }
+            sponsorContainer.scrollLeft = scrollAmount;
+            requestAnimationFrame(scrollSponsors);
+        }
+        
+        // Fare konteynır üzerindeyken duraklat
+        sponsorContainer.addEventListener('mouseenter', () => {
+            scrollSpeed = 0;
+        });
+        
+        sponsorContainer.addEventListener('mouseleave', () => {
+            scrollSpeed = 1;
+        });
+        
+        scrollSponsors();
+    }
+
+    // Yukarı dön butonu
+    initBackToTop() {
+        const backToTopBtn = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Resim değiştirme fonksiyonu (HTML'den doğrudan çağrılıyor)
+function toggleImages(container) {
+    const images = container.querySelectorAll('.toggle-image');
+    images.forEach(img => {
+        img.classList.toggle('active');
+    });
+}
+
+// Uygulamayı başlat
+const konparlamentoApp = new KonparlamentoApp();
+</script>
 </body>
 </html>
