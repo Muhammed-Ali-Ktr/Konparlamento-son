@@ -78,122 +78,116 @@ body {
 
 /* Ana Navigasyon */
 header {
-    background-color: #000;
-    border-bottom: 1px solid #222;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: #000;
+  border-bottom: 1px solid #222;
+  position: relative;
 }
 
 .main-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  flex-wrap: wrap;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 900;
-    font-size: 1.5rem;
-    color: #fff;
-    user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff;
+  user-select: none;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
-    display: block;
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    align-items: center;
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
 }
 
 .nav-links li a {
-    color: #ccc;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    user-select: none;
-    font-size: 0.95rem;
+  color: #ccc;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
 }
 
 .nav-links li a:hover,
 .nav-links li a:focus {
-    background-color: #222;
-    color: #fff;
-    outline: none;
+  background-color: #222;
+  color: #fff;
+  outline: none;
 }
 
 .nav-links li a.active {
-    color: #fff;
-    font-weight: 700;
-    border-bottom: 2px solid #fff;
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 2px solid #f0a500;
 }
 
 .btn {
-    background-color: #fff;
-    color: #000;
-    font-weight: 700;
-    padding: 8px 20px;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    user-select: none;
-    display: inline-block;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
+  background-color: #f0a500;
+  color: #000;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  user-select: none;
 }
 
 .btn:hover,
 .btn:focus {
-    background-color: #ddd;
-    outline: none;
-    transform: translateY(-2px);
+  background-color: #d18e00;
+  outline: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* Mobil Menü Butonu */
 .mobile-menu-btn {
-    display: none;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    background: none;
-    border: none;
-    padding: 5px;
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* Sayfa Hero Bölümü */
+/* Sayfa Başlığı (Hero) */
 .page-hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/about-hero.jpg') center/cover no-repeat;
-    padding: 100px 0;
-    text-align: center;
-    user-select: none;
+  padding: 80px 0 40px;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image/hero-bg.jpg') center/cover no-repeat;
+  user-select: none;
 }
 
 .page-hero h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 15px;
-    color: #fff;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: #fff;
 }
 
 .page-hero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 700px;
-    margin: 0 auto;
+  font-size: 1.2rem;
+  color: #ccc;
 }
 
 /* Section Title */
@@ -211,7 +205,7 @@ header {
 
 .section-title p {
   font-size: 1.1rem;
-  color: #ccc;
+  color: #ccc;
 }
 
 /* Yaklaşan Organizasyonlar - Grid */
