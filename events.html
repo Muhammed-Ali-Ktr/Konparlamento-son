@@ -790,51 +790,6 @@ footer {
     </script>
     <script src="script.js"></script>
 
-    <script>
-        // Mobil menü fonksiyonları
-        function initMobileMenu() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const navLinks = document.getElementById('navLinks');
-            const icon = mobileMenuBtn.querySelector('i');
-
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.classList.toggle('show');
-
-                if (navLinks.classList.contains('show')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Menü dışına tıklayınca menüyü kapatma
-            document.addEventListener('click', function(e) {
-                if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                }
-            });
-
-            // Menü linklerine tıklayınca menüyü kapatma
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (navLinks.classList.contains('show')) {
-                        navLinks.classList.remove('show');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-        }
-     </script>
+   
 </body>
 </html>
