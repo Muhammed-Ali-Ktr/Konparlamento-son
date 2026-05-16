@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başvuru Yap | Konparlamento</title>
+    <link rel="stylesheet" href="apply.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="KONPARLAMENTO.jpg" type="image/JPG">
+</head>
+<body>
+    <!-- Üst Navigasyon -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 0 (212) 123 45 67</span>
+                <span><i class="fas fa-envelope"></i> konparlamento25@gmail.com</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana Navigasyon -->
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="KONPARLAMENTO.jpg" alt="Konparlamento Logo">
+                    <span>Konparlamento</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="about.html">Hakkımızda</a></li>
+                    <li><a href="events.html">Organizasyonlar</a></li>
+                    <li><a href="gallery.html">Galeri</a></li>
+                    <li><a href="contact.html">İletişim</a></li>
+                    <li><a href="apply.html" class="btn">Başvuru Yap</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Başvuru Hero Bölümü -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Konparlamento Başvuru Formu</h1>
+                <p>Organizasyonumuza katılmak için aşağıdaki formu eksiksiz doldurunuz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Başvuru Formu -->
+    <section class="application-form">
+        <div class="container">
+            <div class="form-container">
+                <form class="application-form-content" method="POST" action="#" enctype="multipart/form-data">
+                    <!-- Kişisel Bilgiler -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-user"></i> Kişisel Bilgiler</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Ad *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Soyad *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tcno">T.C. Kimlik No *</label>
+                                <input type="text" id="tcno" name="tcno" maxlength="11" pattern="[0-9]{11}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthDate">Doğum Tarihi *</label>
+                                <input type="date" id="birthDate" name="birthDate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gender">Cinsiyet *</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Seçiniz</option>
+                                    <option value="erkek">Erkek</option>
+                                    <option value="kadın">Kadın</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="maritalStatus">Medeni Durum *</label>
+                                <select id="maritalStatus" name="maritalStatus" required>
+                                    <option value="">Seçiniz</option>
+                                    <option value="bekar">Bekar</option>
+                                    <option value="evli">Evli</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- İletişim Bilgileri -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-phone"></i> İletişim Bilgileri</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon Numarası *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="0 (5xx) xxx xx xx" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta Adresi *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Adres *</label>
+                            <textarea id="address" name="address" rows="3" placeholder="Tam adresinizi yazınız" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">İl *</label>
+                                <select id="city" name="city" required>
+                                    <option value="">İl Seçiniz</option>
+                                    <option value="konya">Konya</option>
+                                    <option value="ankara">Ankara</option>
+                                    <option value="istanbul">İstanbul</option>
+                                    <option value="izmir">İzmir</option>
+                                    <option value="antalya">Antalya</option>
+                                    <option value="other">Diğer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="district">İlçe *</label>
+                                <input type="text" id="district" name="district" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Eğitim Bilgileri -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-graduation-cap"></i> Eğitim Bilgileri</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="education">Eğitim Durumu *</label>
+                                <select id="education" name="education" required>
+                                    <option value="">Seçiniz</option>
+                                    <option value="lise">Lise</option>
+                                    <option value="onlisans">Ön Lisans</option>
+                                    <option value="lisans">Lisans</option>
+                                    <option value="yukseklisans">Yüksek Lisans</option>
+                                    <option value="doktora">Doktora</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="school">Okul/Üniversite Adı</label>
+                                <input type="text" id="school" name="school">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="department">Bölüm/Alan</label>
+                                <input type="text" id="department" name="department">
+                            </div>
+                            <div class="form-group">
+                                <label for="graduationYear">Mezuniyet Yılı</label>
+                                <input type="number" id="graduationYear" name="graduationYear" min="1950" max="2030">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meslek Bilgileri -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-briefcase"></i> Meslek Bilgileri</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="occupation">Meslek</label>
+                                <input type="text" id="occupation" name="occupation">
+                            </div>
+                            <div class="form-group">
+                                <label for="workplace">Çalıştığı Kurum</label>
+                                <input type="text" id="workplace" name="workplace">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workExperience">İş Deneyimi (Yıl)</label>
+                            <select id="workExperience" name="workExperience">
+                                <option value="">Seçiniz</option>
+                                <option value="0-1">0-1 Yıl</option>
+                                <option value="2-5">2-5 Yıl</option>
+                                <option value="6-10">6-10 Yıl</option>
+                                <option value="11+">11+ Yıl</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Konparlamento Bilgileri -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-users"></i> Konparlamento Hakkında</h2>
+                        <div class="form-group">
+                            <label for="howHeard">Konparlamento'yu nereden duydunuz? *</label>
+                            <select id="howHeard" name="howHeard" required>
+                                <option value="">Seçiniz</option>
+                                <option value="sosyal-medya">Sosyal Medya</option>
+                                <option value="arkadas">Arkadaş Tavsiyesi</option>
+                                <option value="internet">İnternet Araması</option>
+                                <option value="etkinlik">Etkinlik/Konferans</option>
+                                <option value="gazete">Gazete/Dergi</option>
+                                <option value="other">Diğer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expectations">Konparlamento'dan beklentileriniz nelerdir?</label>
+                            <textarea id="expectations" name="expectations" rows="4" placeholder="Beklentilerinizi yazınız..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="previousExperience">Daha önce benzer organizasyonlara katıldınız mı?</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="previousExperience" value="evet">
+                                    <span>Evet</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="previousExperience" value="hayir">
+                                    <span>Hayır</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additionalInfo">Ek Bilgiler</label>
+                            <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Eklemek istediğiniz diğer bilgiler..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Dosya Yükleme -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-file-upload"></i> Belgeler</h2>
+                        <div class="form-group">
+                            <label for="cv">CV (PDF formatında)</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf">
+                            <small>Maksimum dosya boyutu: 5MB</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="photo">Fotoğraf (JPG/PNG formatında)</label>
+                            <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png">
+                            <small>Maksimum dosya boyutu: 2MB</small>
+                        </div>
+                    </div>
+
+                    <!-- Onay ve Gizlilik -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-check-circle"></i> Onay ve Gizlilik</h2>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="privacy" required>
+                                <span>Kişisel verilerimin <a href="#" target="_blank">Gizlilik Politikası</a> kapsamında işlenmesini kabul ediyorum. *</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terms" required>
+                                <span><a href="#" target="_blank">Kullanım Şartları</a>'nı okudum ve kabul ediyorum. *</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter">
+                                <span>E-posta bülteni almak istiyorum.</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="accuracy" required>
+                                <span>Verdiğim bilgilerin doğru ve eksiksiz olduğunu beyan ederim. *</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Form Butonları -->
+                    <div class="form-actions">
+                        <button type="reset" class="btn-outline">
+                            <i class="fas fa-undo"></i> Formu Temizle
+                        </button>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> Başvuruyu Gönder
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Başvuru Süreci Bilgilendirme -->
+    <section class="application-process">
+        <div class="container">
+            <h2>Başvuru Süreci</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                        <span class="step-number">1</span>
+                    </div>
+                    <h3>Başvuru Formu</h3>
+                    <p>Başvuru formunu eksiksiz doldurun ve gerekli belgeleri yükleyin.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                        <span class="step-number">2</span>
+                    </div>
+                    <h3>Değerlendirme</h3>
+                    <p>Başvurunuz 3-5 iş günü içinde değerlendirmeye alınacaktır.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-phone"></i>
+                        <span class="step-number">3</span>
+                    </div>
+                    <h3>Görüşme</h3>
+                    <p>Uygun adaylarla telefon veya yüz yüze görüşme yapılacaktır.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                        <span class="step-number">4</span>
+                    </div>
+                    <h3>Sonuç</h3>
+                    <p>Başvuru sonucu 7-10 iş günü içinde e-posta ile bildirilecektir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="KONPARLAMENTO.jpg" alt="Konparlamento Logo">
+                    <p>metin</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="events.html">Organizasyonlar</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="apply.html">Başvuru Yap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>İletişim</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 000 xxx Caddesi, Konya</p>
+                    <p><i class="fas fa-phone"></i> 0 (212) 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> konparlamento25@gmail.com</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Bültenimize Abone Olun</h3>
+                    <p>Etkinliklerimizden haberdar olmak için e-posta listemize kaydolun.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="E-posta adresiniz" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Konparlamento. Tüm hakları saklıdır.</p>
+                <div class="footer-legals">
+                    <a href="#">Gizlilik Politikası</a>
+                    <a href="#">Çerez Politikası</a>
+                    <a href="#">Kullanım Şartları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
